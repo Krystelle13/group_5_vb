@@ -1,5 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Public Class Form1
+Public Class Loginform
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
 
     End Sub
@@ -15,7 +15,7 @@ Public Class Form1
         If txtUserName.Text = "aura" And txtPassword.Text = "auraG5" Then
             MsgBox("Access Granted!", MsgBoxStyle.Information, "Success")
 
-            Dim mainMENU As New Form1
+            Dim mainMENU As New Loginform
             mainMENU.Show()
 
             Me.Hide()
