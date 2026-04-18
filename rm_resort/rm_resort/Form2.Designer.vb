@@ -25,6 +25,7 @@ Partial Class PublicSite
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MenuStrip = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
+        Me.BOOKNOWToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
@@ -44,17 +45,23 @@ Partial Class PublicSite
         'MenuStrip
         '
         Me.MenuStrip.BackColor = System.Drawing.Color.CornflowerBlue
-        Me.MenuStrip.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTextBox1})
+        Me.MenuStrip.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTextBox1, Me.BOOKNOWToolStripMenuItem})
         Me.MenuStrip.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(129, 25)
-        Me.MenuStrip.Text = "BOOK NOW"
+        Me.MenuStrip.Size = New System.Drawing.Size(113, 25)
+        Me.MenuStrip.Text = "RESERVE"
         '
         'ToolStripTextBox1
         '
         Me.ToolStripTextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
         Me.ToolStripTextBox1.Size = New System.Drawing.Size(100, 31)
+        '
+        'BOOKNOWToolStripMenuItem
+        '
+        Me.BOOKNOWToolStripMenuItem.Name = "BOOKNOWToolStripMenuItem"
+        Me.BOOKNOWToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.BOOKNOWToolStripMenuItem.Text = "BOOK NOW"
         '
         'Button1
         '
@@ -82,7 +89,7 @@ Partial Class PublicSite
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.BackgroundImage = Global.rm_resort.My.Resources.Resources.g5_LOGO__2_1
         Me.ClientSize = New System.Drawing.Size(1207, 608)
         Me.Controls.Add(Me.TextBox1)
@@ -113,4 +120,11 @@ Partial Class PublicSite
     Friend WithEvents ToolStripTextBox1 As ToolStripTextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents BOOKNOWToolStripMenuItem As ToolStripMenuItem
+
+    Private Sub MenuStrip_Click(sender As Object, e As EventArgs) Handles MenuStrip.Click
+        Dim f1 As New Form3
+        f1.Show()
+        Me.Hide()
+    End Sub
 End Class

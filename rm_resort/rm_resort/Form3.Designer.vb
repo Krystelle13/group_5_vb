@@ -22,47 +22,48 @@ Partial Class Form3
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtReservationDetail = New System.Windows.Forms.TextBox()
         Me.txtFullname = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TXTContact = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtSelectionCottages = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtPaymentTotal = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnBack = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'txtReservationDetail
         '
-        Me.TextBox1.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.TextBox1.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.ForeColor = System.Drawing.SystemColors.Window
-        Me.TextBox1.Location = New System.Drawing.Point(353, 37)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(415, 44)
-        Me.TextBox1.TabIndex = 0
-        Me.TextBox1.Text = "Reservation Detail"
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtReservationDetail.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.txtReservationDetail.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtReservationDetail.ForeColor = System.Drawing.SystemColors.Window
+        Me.txtReservationDetail.Location = New System.Drawing.Point(353, 37)
+        Me.txtReservationDetail.Name = "txtReservationDetail"
+        Me.txtReservationDetail.Size = New System.Drawing.Size(415, 44)
+        Me.txtReservationDetail.TabIndex = 0
+        Me.txtReservationDetail.Text = "Reservation Detail"
+        Me.txtReservationDetail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtFullname
         '
@@ -98,14 +99,16 @@ Partial Class Form3
         Me.TXTContact.Size = New System.Drawing.Size(211, 26)
         Me.TXTContact.TabIndex = 4
         '
-        'TextBox2
+        'txtSelectionCottages
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.TextBox2.Location = New System.Drawing.Point(60, 229)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(592, 26)
-        Me.TextBox2.TabIndex = 5
-        Me.TextBox2.Text = "SELECT COTTAGE(S)"
+        Me.txtSelectionCottages.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.txtSelectionCottages.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.txtSelectionCottages.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.txtSelectionCottages.Location = New System.Drawing.Point(60, 229)
+        Me.txtSelectionCottages.Name = "txtSelectionCottages"
+        Me.txtSelectionCottages.Size = New System.Drawing.Size(592, 26)
+        Me.txtSelectionCottages.TabIndex = 5
+        Me.txtSelectionCottages.Text = "SELECT COTTAGE(S)"
         '
         'GroupBox1
         '
@@ -120,16 +123,6 @@ Partial Class Form3
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "   "
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.rm_resort.My.Resources.Resources.Image_10
-        Me.PictureBox1.Location = New System.Drawing.Point(38, 20)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(100, 59)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 7
-        Me.PictureBox1.TabStop = False
         '
         'CheckBox1
         '
@@ -163,16 +156,6 @@ Partial Class Form3
         Me.CheckBox2.TabIndex = 8
         Me.CheckBox2.UseVisualStyleBackColor = True
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.rm_resort.My.Resources.Resources.Image_10
-        Me.PictureBox2.Location = New System.Drawing.Point(38, 20)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(100, 59)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 7
-        Me.PictureBox2.TabStop = False
-        '
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.SystemColors.ButtonHighlight
@@ -196,26 +179,16 @@ Partial Class Form3
         Me.CheckBox3.TabIndex = 8
         Me.CheckBox3.UseVisualStyleBackColor = True
         '
-        'PictureBox3
+        'txtPaymentTotal
         '
-        Me.PictureBox3.Image = Global.rm_resort.My.Resources.Resources.Image_10
-        Me.PictureBox3.Location = New System.Drawing.Point(38, 20)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(100, 59)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 7
-        Me.PictureBox3.TabStop = False
-        '
-        'TextBox3
-        '
-        Me.TextBox3.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.TextBox3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.TextBox3.ForeColor = System.Drawing.SystemColors.Window
-        Me.TextBox3.Location = New System.Drawing.Point(60, 574)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(1075, 28)
-        Me.TextBox3.TabIndex = 10
-        Me.TextBox3.Text = "TOTAL PAYMENT"
+        Me.txtPaymentTotal.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.txtPaymentTotal.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.txtPaymentTotal.ForeColor = System.Drawing.SystemColors.Window
+        Me.txtPaymentTotal.Location = New System.Drawing.Point(60, 574)
+        Me.txtPaymentTotal.Name = "txtPaymentTotal"
+        Me.txtPaymentTotal.Size = New System.Drawing.Size(1075, 28)
+        Me.txtPaymentTotal.TabIndex = 10
+        Me.txtPaymentTotal.Text = "TOTAL PAYMENT"
         '
         'Label3
         '
@@ -280,43 +253,85 @@ Partial Class Form3
         Me.Label8.TabIndex = 14
         Me.Label8.Text = "P500"
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.rm_resort.My.Resources.Resources.view3
+        Me.PictureBox3.Location = New System.Drawing.Point(38, 20)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(100, 59)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 7
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.rm_resort.My.Resources.Resources.view2
+        Me.PictureBox2.Location = New System.Drawing.Point(38, 20)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(100, 59)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 7
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.rm_resort.My.Resources.Resources.view1
+        Me.PictureBox1.Location = New System.Drawing.Point(38, 20)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 59)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 7
+        Me.PictureBox1.TabStop = False
+        '
+        'btnBack
+        '
+        Me.btnBack.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnBack.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnBack.Location = New System.Drawing.Point(954, 506)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(118, 46)
+        Me.btnBack.TabIndex = 11
+        Me.btnBack.Text = "Back"
+        Me.btnBack.UseVisualStyleBackColor = False
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1147, 654)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.btnBack)
+        Me.Controls.Add(Me.txtPaymentTotal)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.txtSelectionCottages)
         Me.Controls.Add(Me.TXTContact)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtFullname)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtReservationDetail)
         Me.Name = "Form3"
         Me.Text = "Form3"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtReservationDetail As TextBox
     Friend WithEvents txtFullname As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents TXTContact As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtSelectionCottages As TextBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents PictureBox1 As PictureBox
@@ -329,8 +344,9 @@ Partial Class Form3
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtPaymentTotal As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents btnBack As Button
 End Class
