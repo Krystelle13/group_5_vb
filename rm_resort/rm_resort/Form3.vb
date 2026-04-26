@@ -12,8 +12,9 @@
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim f1 As New PublicSite
-        f1.Show()
-        Me.Hide()
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to Exit?", "Confirm", MessageBoxButtons.OKCancel)
+        If result = DialogResult.OK Then
+            Application.Exit()
+        End If
     End Sub
 End Class

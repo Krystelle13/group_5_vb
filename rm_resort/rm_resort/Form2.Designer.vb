@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class PublicSite
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class Dashboardfrm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,111 +20,136 @@ Partial Class PublicSite
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.MenuStrip = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
-        Me.BOOKNOWToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.MenuStrip1.SuspendLayout()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Dashboardfrm))
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnConfirm = New System.Windows.Forms.Button()
+        Me.dgvBookings = New System.Windows.Forms.DataGridView()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
+        Me.lblStatus = New System.Windows.Forms.Label()
+        Me.Panel1.SuspendLayout()
+        CType(Me.dgvBookings, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'MenuStrip1
+        'Panel1
         '
-        Me.MenuStrip1.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
-        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuStrip})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1207, 29)
-        Me.MenuStrip1.TabIndex = 2
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.Panel1.BackColor = System.Drawing.Color.RoyalBlue
+        Me.Panel1.Controls.Add(Me.lblStatus)
+        Me.Panel1.Controls.Add(Me.btnConfirm)
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.ComboBox1)
+        Me.Panel1.ForeColor = System.Drawing.Color.Chocolate
+        Me.Panel1.Location = New System.Drawing.Point(8, 8)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(129, 335)
+        Me.Panel1.TabIndex = 0
         '
-        'MenuStrip
+        'btnConfirm
         '
-        Me.MenuStrip.BackColor = System.Drawing.Color.CornflowerBlue
-        Me.MenuStrip.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTextBox1, Me.BOOKNOWToolStripMenuItem})
-        Me.MenuStrip.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(113, 25)
-        Me.MenuStrip.Text = "RESERVE"
+        Me.btnConfirm.Location = New System.Drawing.Point(0, 99)
+        Me.btnConfirm.Name = "btnConfirm"
+        Me.btnConfirm.Size = New System.Drawing.Size(129, 40)
+        Me.btnConfirm.TabIndex = 6
+        Me.btnConfirm.Text = "Confirm"
+        Me.btnConfirm.UseVisualStyleBackColor = True
         '
-        'ToolStripTextBox1
+        'dgvBookings
         '
-        Me.ToolStripTextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
-        Me.ToolStripTextBox1.Size = New System.Drawing.Size(100, 31)
+        Me.dgvBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvBookings.Location = New System.Drawing.Point(143, 77)
+        Me.dgvBookings.Name = "dgvBookings"
+        Me.dgvBookings.Size = New System.Drawing.Size(378, 193)
+        Me.dgvBookings.TabIndex = 3
         '
-        'BOOKNOWToolStripMenuItem
+        'PictureBox1
         '
-        Me.BOOKNOWToolStripMenuItem.Name = "BOOKNOWToolStripMenuItem"
-        Me.BOOKNOWToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
-        Me.BOOKNOWToolStripMenuItem.Text = "BOOK NOW"
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(36, 13)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(55, 44)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
         '
-        'Button1
+        'ComboBox1
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Button1.Font = New System.Drawing.Font("Arial", 6.0!, System.Drawing.FontStyle.Bold)
-        Me.Button1.Location = New System.Drawing.Point(1127, 1)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "Back"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(0, 78)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(129, 21)
+        Me.ComboBox1.TabIndex = 2
         '
-        'TextBox1
+        'ContextMenuStrip1
         '
-        Me.TextBox1.AllowDrop = True
-        Me.TextBox1.Font = New System.Drawing.Font("Arial", 25.0!, System.Drawing.FontStyle.Bold)
-        Me.TextBox1.Location = New System.Drawing.Point(310, 230)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(545, 65)
-        Me.TextBox1.TabIndex = 4
-        Me.TextBox1.Text = "PUBLIC SITE"
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
-        'PublicSite
+        'Label1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(184, 38)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(299, 36)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Dashboard Overview"
+        '
+        'tmrRefresh
+        '
+        Me.tmrRefresh.Enabled = True
+        Me.tmrRefresh.Interval = 5000
+        '
+        'lblStatus
+        '
+        Me.lblStatus.AutoSize = True
+        Me.lblStatus.Font = New System.Drawing.Font("Microsoft Tai Le", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStatus.Location = New System.Drawing.Point(38, 155)
+        Me.lblStatus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(53, 16)
+        Me.lblStatus.TabIndex = 6
+        Me.lblStatus.Text = "STATUS"
+        '
+        'Dashboardfrm
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.BackgroundImage = Global.rm_resort.My.Resources.Resources.g5_LOGO__2_1
-        Me.ClientSize = New System.Drawing.Size(1207, 608)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.MainMenuStrip = Me.MenuStrip1
-        Me.Name = "PublicSite"
+        Me.ClientSize = New System.Drawing.Size(533, 346)
+        Me.Controls.Add(Me.dgvBookings)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Panel1)
+        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Name = "Dashboardfrm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form2"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        CType(Me.dgvBookings, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        Dim f2 As New Loginform()
-        f2.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub PublicSite_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents MenuStrip As ToolStripMenuItem
-    Friend WithEvents ToolStripTextBox1 As ToolStripTextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents BOOKNOWToolStripMenuItem As ToolStripMenuItem
-
-    Private Sub MenuStrip_Click(sender As Object, e As EventArgs) Handles MenuStrip.Click
-        Dim f1 As New Form3
-        f1.Show()
-        Me.Hide()
-    End Sub
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ColorDialog1 As ColorDialog
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents Label1 As Label
+    Friend WithEvents btnConfirm As Button
+    Friend WithEvents dgvBookings As DataGridView
+    Friend WithEvents tmrRefresh As Timer
+    Friend WithEvents lblStatus As Label
 End Class

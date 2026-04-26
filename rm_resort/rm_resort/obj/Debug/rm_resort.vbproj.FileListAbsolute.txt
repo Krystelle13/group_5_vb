@@ -78,7 +78,6 @@ C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\bin\Debug\System.Runtime.Compiler
 C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.vbproj.AssemblyReference.cache
 C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.Loginform.resources
-C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.Form2.resources
 C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.Resources.resources
 C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.vbproj.GenerateResource.cache
 C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.vbproj.CoreCompileInputs.cache
@@ -87,3 +86,4 @@ C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.exe
 C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.xml
 C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.pdb
 C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.Form3.resources
+C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.Dashboardfrm.resources
