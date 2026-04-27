@@ -121,10 +121,12 @@ Partial Class Dashboardfrm
         '
         Me.dgvBookings.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab
         Me.dgvBookings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvBookings.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
+        Me.dgvBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvBookings.Location = New System.Drawing.Point(157, 115)
         Me.dgvBookings.Name = "dgvBookings"
-        Me.dgvBookings.Size = New System.Drawing.Size(372, 155)
+        Me.dgvBookings.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.dgvBookings.Size = New System.Drawing.Size(372, 173)
         Me.dgvBookings.TabIndex = 3
         '
         'ContextMenuStrip1
@@ -150,7 +152,7 @@ Partial Class Dashboardfrm
         '
         'btnConfirmPaid
         '
-        Me.btnConfirmPaid.Location = New System.Drawing.Point(173, 283)
+        Me.btnConfirmPaid.Location = New System.Drawing.Point(167, 294)
         Me.btnConfirmPaid.Name = "btnConfirmPaid"
         Me.btnConfirmPaid.Size = New System.Drawing.Size(147, 40)
         Me.btnConfirmPaid.TabIndex = 12
@@ -175,7 +177,7 @@ Partial Class Dashboardfrm
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(353, 283)
+        Me.btnCancel.Location = New System.Drawing.Point(353, 294)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(168, 40)
         Me.btnCancel.TabIndex = 15

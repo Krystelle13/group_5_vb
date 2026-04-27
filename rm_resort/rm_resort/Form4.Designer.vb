@@ -36,7 +36,7 @@ Partial Class FrmConfirm
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnChekin = New System.Windows.Forms.Button()
         Me.TxtSearch = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
@@ -123,7 +123,7 @@ Partial Class FrmConfirm
         Me.dgvConfirmed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvConfirmed.Location = New System.Drawing.Point(155, 121)
         Me.dgvConfirmed.Name = "dgvConfirmed"
-        Me.dgvConfirmed.Size = New System.Drawing.Size(372, 154)
+        Me.dgvConfirmed.Size = New System.Drawing.Size(372, 167)
         Me.dgvConfirmed.TabIndex = 14
         '
         'ContextMenuStrip1
@@ -147,13 +147,14 @@ Partial Class FrmConfirm
         Me.tmrRefresh.Enabled = True
         Me.tmrRefresh.Interval = 5000
         '
-        'Button2
+        'btnChekin
         '
-        Me.Button2.Location = New System.Drawing.Point(188, 281)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(293, 40)
-        Me.Button2.TabIndex = 16
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnChekin.Location = New System.Drawing.Point(168, 294)
+        Me.btnChekin.Name = "btnChekin"
+        Me.btnChekin.Size = New System.Drawing.Size(293, 40)
+        Me.btnChekin.TabIndex = 16
+        Me.btnChekin.Text = "Check in"
+        Me.btnChekin.UseVisualStyleBackColor = True
         '
         'TxtSearch
         '
@@ -181,7 +182,7 @@ Partial Class FrmConfirm
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.dgvConfirmed)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnChekin)
         Me.Name = "FrmConfirm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form4"
@@ -205,7 +206,7 @@ Partial Class FrmConfirm
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents Label1 As Label
     Friend WithEvents tmrRefresh As Timer
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnChekin As Button
     Friend WithEvents TxtSearch As TextBox
     Friend WithEvents Label2 As Label
 End Class
