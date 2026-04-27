@@ -200,4 +200,21 @@ Public Class Dashboardfrm
     Private Sub dgvBookings_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBookings.CellContentClick
 
     End Sub
+
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        ' 1. Ask for confirmation so they don't log out by mistake
+        Dim response = MsgBox("Are you sure you want to log out?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Logout")
+
+        If response = MsgBoxResult.Yes Then
+            ' 2. Create a new instance of your Login Form (Form2)
+            Dim login As New Loginform()
+
+            ' 3. Show the login form
+            login.Show()
+
+            ' 4. Close this Main Form completely
+            Me.Dispose()
+        End If
+
+    End Sub
 End Class
