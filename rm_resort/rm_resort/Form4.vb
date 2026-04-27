@@ -14,65 +14,49 @@ Public Class FrmConfirm
         Try
             If conn.State = ConnectionState.Closed Then conn.Open()
 
-            ' SQL Query: Kinukuha lang ang status na 'Paid'
-            Dim query As String = "SELECT booking_id, guest_name, check_in_date, status FROM bookings WHERE status = 'Paid' ORDER BY booking_id DESC"
+            ' Query: Kumpleto ang details, status ay 'Confirmed'
+            Dim sql As String = "SELECT b.booking_id AS 'ID', " &
+                            "b.guest_name AS 'Guest Name', " &
+                            "b.guest_email AS 'Email Address', " &
+                            "r.room_name AS 'Cottage/Room', " &
+                            "b.check_in_date AS 'Date', " &
+                            "b.payment_option AS 'Payment', " &
+                            "b.total_price AS 'Total', " &
+                            "b.status AS 'Status' " &
+                            "FROM bookings b " &
+                            "INNER JOIN rooms r ON b.room_id = r.room_id " &
+                            "WHERE b.status = 'Confirmed' " &
+                            "ORDER BY b.booking_id DESC"
 
-            Dim adp As New MySqlDataAdapter(query, conn)
+            Dim adp As New MySqlDataAdapter(sql, conn)
             Dim dt As New DataTable
             dt.Clear()
             adp.Fill(dt)
 
-            ' I-bind ang data sa iyong DataGridView
             dgvConfirmed.DataSource = dt
 
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
-        Finally
-            conn.Close()
-        End Try
-    End Sub
-
-    Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
-        Dim f1 As New Dashboardfrm
-        f1.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub TxtSearch_TextChanged(sender As Object, e As EventArgs) Handles TxtSearch.TextChanged
-        Try
-            ' 1. Siguraduhin na bukas ang koneksyon sa database
-            If conn.State = ConnectionState.Closed Then conn.Open()
-
-            ' 2. SQL Query para sa Paid customers
-            ' Naghahanap tayo sa guest_name at guest_email kung saan ang status ay 'Paid'
-            Dim sql As String = "SELECT booking_id, guest_name, guest_email, contact_no, cottage_type, check_in_date, payment_option, total_price " &
-                           "FROM bookings " &
-                           "WHERE (guest_name LIKE @search OR guest_email LIKE @search) " &
-                           "AND status = 'Paid' " &
-                           "ORDER BY booking_id DESC"
-
-            Dim cmd As New MySqlCommand(sql, conn)
-            ' Gagamit tayo ng wildcard (%) para makuha kahit part lang ng pangalan
-            cmd.Parameters.AddWithValue("@search", "%" & TxtSearch.Text & "%")
-
-            Dim adp As New MySqlDataAdapter(cmd)
-            Dim dt As New DataTable
-            dt.Clear()
-            adp.Fill(dt)
-
-            ' 3. I-update ang DataGridView ng Confirmed Form
-            dgvConfirmed.DataSource = dt
-
-            ' 4. I-apply ang formatting para hindi siksikan (Uniform Width)
+            ' --- FORMATTING: SAME SA PENDING PARA CONSISTENT ---
             If dgvConfirmed.Columns.Count > 0 Then
+                ' Itago ang ID
+                dgvConfirmed.Columns("ID").Visible = False
+
+                ' Lapad ng Columns para scrollable
                 dgvConfirmed.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
-                For Each col As DataGridViewColumn In dgvConfirmed.Columns
-                    col.Width = 150
-                Next
+                dgvConfirmed.Columns("Guest Name").Width = 180
+                dgvConfirmed.Columns("Email Address").Width = 200
+                dgvConfirmed.Columns("Cottage/Room").Width = 180
+                dgvConfirmed.Columns("Date").Width = 120
+                dgvConfirmed.Columns("Payment").Width = 120
+                dgvConfirmed.Columns("Total").Width = 100
+                dgvConfirmed.Columns("Status").Width = 100
+
+                dgvConfirmed.Columns("Total").DefaultCellStyle.Format = "N2"
             End If
 
+            dgvConfirmed.ScrollBars = ScrollBars.Both
+
         Catch ex As Exception
-            Console.WriteLine("Search Error: " & ex.Message)
+            MessageBox.Show("Error loading confirmed list: " & ex.Message)
         Finally
             conn.Close()
         End Try
@@ -93,6 +77,40 @@ Public Class FrmConfirm
             Me.Dispose()
         End If
 
+    End Sub
+
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles TxtSearch.TextChanged
+        Try
+            If conn.State = ConnectionState.Closed Then conn.Open()
+
+            Dim sql As String = "SELECT b.booking_id AS 'ID', b.guest_name AS 'Guest Name', b.guest_email AS 'Email Address', " &
+                                "r.room_name AS 'Cottage/Room', b.check_in_date AS 'Date', b.payment_option AS 'Payment', " &
+                                "b.total_price AS 'Total', b.status AS 'Status' FROM bookings b " &
+                                "INNER JOIN rooms r ON b.room_id = r.room_id " &
+                                "WHERE b.status = 'Confirmed' AND (b.guest_name LIKE @s OR b.guest_email LIKE @s) " &
+                                "ORDER BY b.booking_id DESC"
+
+            Dim cmd As New MySqlCommand(sql, conn)
+            cmd.Parameters.AddWithValue("@s", "%" & TxtSearch.Text & "%")
+
+            Dim adp As New MySqlDataAdapter(cmd)
+            Dim dt As New DataTable
+            adp.Fill(dt)
+
+            dgvConfirmed.DataSource = dt
+            ' Siguraduhin na tago pa rin ang ID kahit nag-search
+            If dgvConfirmed.Columns.Count > 0 Then dgvConfirmed.Columns("ID").Visible = False
+
+        Catch ex As Exception
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
+        Dim f1 As New Dashboardfrm
+        f1.Show()
+        Me.Hide()
     End Sub
 
 

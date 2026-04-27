@@ -14,56 +14,58 @@ Public Class Dashboardfrm
     ' 2. Ito ang function na hinahanap ng Load event mo
     Public Sub LoadBookings()
         Try
-            ' 1. Siguraduhin na bukas ang koneksyon
             If conn.State = ConnectionState.Closed Then conn.Open()
 
-            ' 2. SQL Query - Siguraduhin na ang column names ay match sa database mo
-            ' DAPAT GANITO ANG SQL MO:
-            Dim sql As String = "SELECT booking_id, guest_name, contact_no, cottage_type, check_in_date, payment_option, total_price, status FROM bookings WHERE status = 'Pending' ORDER BY booking_id DESC"
+            ' Query: Idinagdag ang guest_email at naka-INNER JOIN para sa cottage name
+            Dim sql As String = "SELECT b.booking_id AS 'ID', " &
+                            "b.guest_name AS 'Guest Name', " &
+                            "b.guest_email AS 'Email Address', " &
+                            "r.room_name AS 'Cottage/Room', " &
+                            "b.check_in_date AS 'Date', " &
+                            "b.payment_option AS 'Payment', " &
+                            "b.total_price AS 'Total', " &
+                            "b.status AS 'Status' " &
+                            "FROM bookings b " &
+                            "INNER JOIN rooms r ON b.room_id = r.room_id " &
+                            "WHERE b.status = 'Pending' " &
+                            "ORDER BY b.booking_id DESC"
 
             Dim adp As New MySqlDataAdapter(sql, conn)
             Dim dt As New DataTable
             dt.Clear()
             adp.Fill(dt)
 
-            ' 3. I-set ang DataSource sa DataGridView
+            ' I-set ang DataSource
             dgvBookings.DataSource = dt
 
-            ' 4. FORMATTING PARA HINDI CROWDED
+            ' --- FORMATTING & HIDING ID ---
             If dgvBookings.Columns.Count > 0 Then
-                ' I-set ang scrollable behavior
-                dgvBookings.ScrollBars = ScrollBars.Both
+                ' 1. Itago ang ID column
+                dgvBookings.Columns("ID").Visible = False
+
+                ' 2. I-set ang lapad ng columns para maging scrollable
                 dgvBookings.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
+                dgvBookings.Columns("Guest Name").Width = 180
+                dgvBookings.Columns("Email Address").Width = 200 ' Bagong column
+                dgvBookings.Columns("Cottage/Room").Width = 180
+                dgvBookings.Columns("Date").Width = 120
+                dgvBookings.Columns("Payment").Width = 120
+                dgvBookings.Columns("Total").Width = 100
+                dgvBookings.Columns("Status").Width = 100
 
-                ' Row height para may "hinga" ang bawat record
-                dgvBookings.RowTemplate.Height = 30
-
-                ' LOOP: Para maging pantay ang sukat ng lahat ng columns
-                For Each col As DataGridViewColumn In dgvBookings.Columns
-                    col.Width = 150 ' Gawin nating 150 para sapat ang luwang
-                    col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-                Next
-
-                ' OPTIONAL: Gawin nating mas malapad ang Customer Name kung gusto mo
-                If dgvBookings.Columns.Contains("guest_name") Then
-                    dgvBookings.Columns("guest_name").Width = 200
-                End If
-
-                ' I-hide o ipakita ang ID
-                If dgvBookings.Columns.Contains("booking_id") Then
-                    dgvBookings.Columns("booking_id").Visible = True
-                End If
+                ' 3. Format para sa presyo (₱ 0.00)
+                dgvBookings.Columns("Total").DefaultCellStyle.Format = "N2"
             End If
 
+            ' Siguraduhin na pwedeng mag-scroll pakanan
+            dgvBookings.ScrollBars = ScrollBars.Both
+
         Catch ex As Exception
-            ' I-print ang error sa console para sa debugging
-            Console.WriteLine("Error: " & ex.Message)
+            MessageBox.Show("Error loading bookings: " & ex.Message)
         Finally
-            ' Laging i-close ang koneksyon
             conn.Close()
         End Try
     End Sub
-
 
 
 
@@ -72,43 +74,57 @@ Public Class Dashboardfrm
 
 
     Private Sub dgvBookings_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBookings.CellContentDoubleClick
+        ' Siguraduhin na ang row index ay valid (hindi header)
         If e.RowIndex >= 0 Then
-            ' Kunin ang ID ng row na na-click
-            selectedBookingID = dgvBookings.Rows(e.RowIndex).Cells("booking_id").Value
-
-            ' Enable ang control buttons
+            ' I-enable ang mga buttons dahil may napili na
             btnConfirmPaid.Enabled = True
             btnCancel.Enabled = True
 
-            ' Ipakita kung sinong customer ang napili
-            Dim name = dgvBookings.Rows(e.RowIndex).Cells("guest_name").Value.ToString()
-            MessageBox.Show("Now processing reservation for: " & name)
+            ' (Optional) Pwede mo ring i-select ang buong row para visual guide
+            dgvBookings.Rows(e.RowIndex).Selected = True
+
+            Dim guestName As String = dgvBookings.Rows(e.RowIndex).Cells("Guest Name").Value.ToString()
+            ' MsgBox("Selected: " & guestName) ' Pwede itong gamitin para sa testing
         End If
     End Sub
 
     Private Sub btnConfirmPaid_Click(sender As Object, e As EventArgs) Handles btnConfirmPaid.Click
-        Try
-            If conn.State = ConnectionState.Closed Then conn.Open()
+        ' 1. Siguraduhin na may napiling customer sa DataGridView
+        If dgvBookings.SelectedRows.Count > 0 Then
+            ' Kunin ang ID mula sa hidden column at ang pangalan para sa message
+            Dim bookingID As String = dgvBookings.CurrentRow.Cells("ID").Value.ToString()
+            Dim guestName As String = dgvBookings.CurrentRow.Cells("Guest Name").Value.ToString()
 
-            ' Query para i-update ang status
-            Dim cmd As New MySqlCommand("UPDATE bookings SET status = 'Paid' WHERE booking_id = @id", conn)
-            cmd.Parameters.AddWithValue("@id", selectedBookingID)
+            ' 2. Magpakita ng confirmation prompt
+            Dim ask As DialogResult = MessageBox.Show("Confirm payment and booking for " & guestName & "?", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-            If cmd.ExecuteNonQuery() > 0 Then
-                MessageBox.Show("Payment Confirmed! Customer moved to Confirmed List.")
+            If ask = DialogResult.Yes Then
+                Try
+                    If conn.State = ConnectionState.Closed Then conn.Open()
 
-                ' I-refresh ang grid para mawala na ang customer
-                LoadBookings()
+                    ' 3. SQL Update: Lilipat ang status sa 'Confirmed'
+                    Dim sql As String = "UPDATE bookings SET status = 'Confirmed' WHERE booking_id = @id"
+                    Dim cmd As New MySqlCommand(sql, conn)
+                    cmd.Parameters.AddWithValue("@id", bookingID)
 
-                ' I-disable ulit ang button
-                btnConfirmPaid.Enabled = False
+                    Dim result As Integer = cmd.ExecuteNonQuery()
+
+                    If result > 0 Then
+                        MessageBox.Show("Booking successfully transferred to Confirmed List!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                        ' 4. Automatic Refresh: Mawawala na siya sa Dashboard/Pending list
+                        LoadBookings()
+                    End If
+
+                Catch ex As Exception
+                    MessageBox.Show("Error updating booking: " & ex.Message)
+                Finally
+                    conn.Close()
+                End Try
             End If
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            conn.Close()
-        End Try
+        Else
+            MessageBox.Show("Please select a customer from the list first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -117,21 +133,25 @@ Public Class Dashboardfrm
         Me.Hide()
     End Sub
 
-    Private Sub TxtSearch_TextChanged(sender As Object, e As EventArgs) Handles TxtSearch.TextChanged
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles TxtSearch.TextChanged
         Try
-            ' 1. Siguraduhin na bukas ang koneksyon
             If conn.State = ConnectionState.Closed Then conn.Open()
 
-            ' 2. SQL Query na may filter para sa Name at Email
-            ' Gagamit tayo ng % sa paligid ng search term para kahit part lang ng pangalan ang i-type ay lalabas ito
-            Dim sql As String = "SELECT booking_id, guest_name, guest_email, contact_no, cottage_type, check_in_date, status " &
-                           "FROM bookings " &
-                           "WHERE (guest_name LIKE @search OR guest_email LIKE @search) " &
-                           "AND status = 'Pending' " &
-                           "ORDER BY booking_id DESC"
+            ' Query para sa Search (Same structure sa LoadBookings)
+            Dim sql As String = "SELECT b.booking_id AS 'ID', " &
+                            "b.guest_name AS 'Guest Name', " &
+                            "b.guest_email AS 'Email Address', " &
+                            "r.room_name AS 'Cottage/Room', " &
+                            "b.check_in_date AS 'Date', " &
+                            "b.payment_option AS 'Payment', " &
+                            "b.total_price AS 'Total', " &
+                            "b.status AS 'Status' " &
+                            "FROM bookings b " &
+                            "INNER JOIN rooms r ON b.room_id = r.room_id " &
+                            "WHERE b.status = 'Pending' AND (b.guest_name LIKE @search OR b.guest_email LIKE @search) " &
+                            "ORDER BY b.booking_id DESC"
 
             Dim cmd As New MySqlCommand(sql, conn)
-            ' Ang @search ay kukuha ng value mula sa txtSearch box
             cmd.Parameters.AddWithValue("@search", "%" & TxtSearch.Text & "%")
 
             Dim adp As New MySqlDataAdapter(cmd)
@@ -139,18 +159,25 @@ Public Class Dashboardfrm
             dt.Clear()
             adp.Fill(dt)
 
-            ' 3. I-update ang DataGridView
             dgvBookings.DataSource = dt
 
-            ' 4. I-apply ang formatting para hindi mag-reset ang itsura ng columns
+            ' --- APPLY SAME FORMATTING PARA HINDI MAGBAGO ANG ITSURA ---
             If dgvBookings.Columns.Count > 0 Then
-                For Each col As DataGridViewColumn In dgvBookings.Columns
-                    col.Width = 150
-                Next
+                dgvBookings.Columns("ID").Visible = False
+                dgvBookings.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
+                dgvBookings.Columns("Guest Name").Width = 180
+                dgvBookings.Columns("Email Address").Width = 200
+                dgvBookings.Columns("Cottage/Room").Width = 180
+                dgvBookings.Columns("Date").Width = 120
+                dgvBookings.Columns("Payment").Width = 120
+                dgvBookings.Columns("Total").Width = 100
+                dgvBookings.Columns("Status").Width = 100
+
+                dgvBookings.Columns("Total").DefaultCellStyle.Format = "N2"
             End If
 
         Catch ex As Exception
-            Console.WriteLine("Search Error: " & ex.Message)
+            ' Tahimik na error para hindi istorbo sa pag-type
         Finally
             conn.Close()
         End Try
@@ -197,9 +224,7 @@ Public Class Dashboardfrm
         End If
     End Sub
 
-    Private Sub dgvBookings_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBookings.CellContentClick
 
-    End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         ' 1. Ask for confirmation so they don't log out by mistake
