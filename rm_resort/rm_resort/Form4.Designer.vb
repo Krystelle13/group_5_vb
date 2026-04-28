@@ -40,6 +40,7 @@ Partial Class FrmConfirm
         Me.TxtSearch = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnRefresh = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvConfirmed, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,7 +48,7 @@ Partial Class FrmConfirm
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.RoyalBlue
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Panel1.Controls.Add(Me.btnLogout)
         Me.Panel1.Controls.Add(Me.btnSettings)
         Me.Panel1.Controls.Add(Me.btnCurrent)
@@ -62,6 +63,8 @@ Partial Class FrmConfirm
         '
         'btnLogout
         '
+        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogout.ForeColor = System.Drawing.Color.Red
         Me.btnLogout.Location = New System.Drawing.Point(-8, 360)
         Me.btnLogout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnLogout.Name = "btnLogout"
@@ -72,6 +75,8 @@ Partial Class FrmConfirm
         '
         'btnSettings
         '
+        Me.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSettings.ForeColor = System.Drawing.Color.Orange
         Me.btnSettings.Location = New System.Drawing.Point(-8, 271)
         Me.btnSettings.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSettings.Name = "btnSettings"
@@ -82,6 +87,8 @@ Partial Class FrmConfirm
         '
         'btnCurrent
         '
+        Me.btnCurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCurrent.ForeColor = System.Drawing.Color.Orange
         Me.btnCurrent.Location = New System.Drawing.Point(-8, 211)
         Me.btnCurrent.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCurrent.Name = "btnCurrent"
@@ -92,6 +99,8 @@ Partial Class FrmConfirm
         '
         'Button1
         '
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.Color.Orange
         Me.Button1.Location = New System.Drawing.Point(-8, 150)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
@@ -102,6 +111,8 @@ Partial Class FrmConfirm
         '
         'btnConfirm
         '
+        Me.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnConfirm.ForeColor = System.Drawing.Color.Orange
         Me.btnConfirm.Location = New System.Drawing.Point(-8, 90)
         Me.btnConfirm.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnConfirm.Name = "btnConfirm"
@@ -124,6 +135,7 @@ Partial Class FrmConfirm
         '
         Me.dgvConfirmed.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab
         Me.dgvConfirmed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvConfirmed.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvConfirmed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvConfirmed.Location = New System.Drawing.Point(207, 158)
         Me.dgvConfirmed.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
@@ -163,16 +175,16 @@ Partial Class FrmConfirm
         '
         'TxtSearch
         '
-        Me.TxtSearch.Location = New System.Drawing.Point(287, 124)
+        Me.TxtSearch.Location = New System.Drawing.Point(280, 120)
         Me.TxtSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TxtSearch.Name = "TxtSearch"
-        Me.TxtSearch.Size = New System.Drawing.Size(392, 25)
+        Me.TxtSearch.Size = New System.Drawing.Size(331, 25)
         Me.TxtSearch.TabIndex = 17
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(220, 128)
+        Me.Label2.Location = New System.Drawing.Point(220, 123)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(52, 17)
@@ -181,19 +193,34 @@ Partial Class FrmConfirm
         '
         'btnRefresh
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(599, 75)
+        Me.btnRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnRefresh.Location = New System.Drawing.Point(617, 120)
         Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(81, 30)
+        Me.btnRefresh.Size = New System.Drawing.Size(81, 25)
         Me.btnRefresh.TabIndex = 17
         Me.btnRefresh.Text = "Refresh"
-        Me.btnRefresh.UseVisualStyleBackColor = True
+        Me.btnRefresh.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Button2.Location = New System.Drawing.Point(671, -1)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(45, 26)
+        Me.Button2.TabIndex = 19
+        Me.Button2.Text = "X"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'FrmConfirm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(711, 452)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TxtSearch)
@@ -230,4 +257,5 @@ Partial Class FrmConfirm
     Friend WithEvents TxtSearch As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents btnRefresh As Button
+    Friend WithEvents Button2 As Button
 End Class
