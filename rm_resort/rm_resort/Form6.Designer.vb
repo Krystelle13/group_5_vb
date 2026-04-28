@@ -55,53 +55,57 @@ Partial Class CurrentStayfrm
         Me.Panel1.Controls.Add(Me.btnConfirm)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.ForeColor = System.Drawing.Color.Chocolate
-        Me.Panel1.Location = New System.Drawing.Point(0, -4)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel1.Location = New System.Drawing.Point(0, -5)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(150, 345)
+        Me.Panel1.Size = New System.Drawing.Size(200, 451)
         Me.Panel1.TabIndex = 19
         '
         'btnLogout
         '
-        Me.btnLogout.Location = New System.Drawing.Point(-6, 275)
+        Me.btnLogout.Location = New System.Drawing.Point(-8, 360)
+        Me.btnLogout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(159, 40)
+        Me.btnLogout.Size = New System.Drawing.Size(212, 52)
         Me.btnLogout.TabIndex = 11
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.UseVisualStyleBackColor = True
         '
         'btnSettings
         '
-        Me.btnSettings.Location = New System.Drawing.Point(-6, 207)
+        Me.btnSettings.Location = New System.Drawing.Point(-8, 271)
+        Me.btnSettings.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSettings.Name = "btnSettings"
-        Me.btnSettings.Size = New System.Drawing.Size(159, 40)
+        Me.btnSettings.Size = New System.Drawing.Size(212, 52)
         Me.btnSettings.TabIndex = 10
         Me.btnSettings.Text = "Settings"
         Me.btnSettings.UseVisualStyleBackColor = True
         '
         'btnCurrent
         '
-        Me.btnCurrent.Location = New System.Drawing.Point(-6, 161)
+        Me.btnCurrent.Location = New System.Drawing.Point(-8, 211)
+        Me.btnCurrent.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCurrent.Name = "btnCurrent"
-        Me.btnCurrent.Size = New System.Drawing.Size(159, 40)
+        Me.btnCurrent.Size = New System.Drawing.Size(212, 52)
         Me.btnCurrent.TabIndex = 9
         Me.btnCurrent.Text = "Currently Staying"
         Me.btnCurrent.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(-6, 115)
+        Me.Button1.Location = New System.Drawing.Point(-8, 150)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(159, 40)
+        Me.Button1.Size = New System.Drawing.Size(212, 52)
         Me.Button1.TabIndex = 8
         Me.Button1.Text = "Confirmed"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'btnConfirm
         '
-        Me.btnConfirm.Location = New System.Drawing.Point(-6, 69)
+        Me.btnConfirm.Location = New System.Drawing.Point(-8, 90)
+        Me.btnConfirm.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnConfirm.Name = "btnConfirm"
-        Me.btnConfirm.Size = New System.Drawing.Size(159, 40)
+        Me.btnConfirm.Size = New System.Drawing.Size(212, 52)
         Me.btnConfirm.TabIndex = 6
         Me.btnConfirm.Text = "Pending"
         Me.btnConfirm.UseVisualStyleBackColor = True
@@ -109,10 +113,9 @@ Partial Class CurrentStayfrm
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(47, 15)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox1.Location = New System.Drawing.Point(63, 20)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(55, 44)
+        Me.PictureBox1.Size = New System.Drawing.Size(73, 58)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
@@ -122,9 +125,10 @@ Partial Class CurrentStayfrm
         Me.dgvCurrentStay.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab
         Me.dgvCurrentStay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvCurrentStay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCurrentStay.Location = New System.Drawing.Point(155, 121)
+        Me.dgvCurrentStay.Location = New System.Drawing.Point(207, 158)
+        Me.dgvCurrentStay.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvCurrentStay.Name = "dgvCurrentStay"
-        Me.dgvCurrentStay.Size = New System.Drawing.Size(372, 167)
+        Me.dgvCurrentStay.Size = New System.Drawing.Size(496, 218)
         Me.dgvCurrentStay.TabIndex = 20
         '
         'ContextMenuStrip1
@@ -136,8 +140,7 @@ Partial Class CurrentStayfrm
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(190, 27)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(253, 35)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(308, 36)
         Me.Label1.TabIndex = 21
@@ -151,42 +154,46 @@ Partial Class CurrentStayfrm
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(165, 98)
+        Me.Label2.Location = New System.Drawing.Point(220, 128)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 13)
+        Me.Label2.Size = New System.Drawing.Size(52, 17)
         Me.Label2.TabIndex = 24
         Me.Label2.Text = "Search:"
         '
         'TxtSearchCurrent
         '
-        Me.TxtSearchCurrent.Location = New System.Drawing.Point(215, 95)
+        Me.TxtSearchCurrent.Location = New System.Drawing.Point(287, 124)
+        Me.TxtSearchCurrent.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TxtSearchCurrent.Name = "TxtSearchCurrent"
-        Me.TxtSearchCurrent.Size = New System.Drawing.Size(295, 20)
+        Me.TxtSearchCurrent.Size = New System.Drawing.Size(392, 25)
         Me.TxtSearchCurrent.TabIndex = 23
         '
         'btnCheckout
         '
-        Me.btnCheckout.Location = New System.Drawing.Point(196, 294)
+        Me.btnCheckout.Location = New System.Drawing.Point(261, 384)
+        Me.btnCheckout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCheckout.Name = "btnCheckout"
-        Me.btnCheckout.Size = New System.Drawing.Size(293, 40)
+        Me.btnCheckout.Size = New System.Drawing.Size(391, 52)
         Me.btnCheckout.TabIndex = 22
         Me.btnCheckout.Text = "Check Out"
         Me.btnCheckout.UseVisualStyleBackColor = True
         '
         'btnRefresh
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(466, 11)
+        Me.btnRefresh.Location = New System.Drawing.Point(621, 14)
+        Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(61, 23)
+        Me.btnRefresh.Size = New System.Drawing.Size(81, 30)
         Me.btnRefresh.TabIndex = 17
         Me.btnRefresh.Text = "Refresh"
         Me.btnRefresh.UseVisualStyleBackColor = True
         '
         'CurrentStayfrm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(533, 346)
+        Me.ClientSize = New System.Drawing.Size(711, 452)
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.dgvCurrentStay)
@@ -194,6 +201,8 @@ Partial Class CurrentStayfrm
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TxtSearchCurrent)
         Me.Controls.Add(Me.btnCheckout)
+        Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "CurrentStayfrm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form6"

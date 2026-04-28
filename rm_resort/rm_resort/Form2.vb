@@ -263,4 +263,30 @@ Public Class Dashboardfrm
         ' 4. Optional: Inform the user
         ' MessageBox.Show("Data refreshed successfully.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
+    ' FOR THE CONFIRMED PAID BUTTON
+    Private Sub btnConfirmPaid_MouseEnter(sender As Object, e As EventArgs) Handles btnConfirmPaid.MouseEnter
+        ' Change to a slightly lighter green on hover
+        btnConfirmPaid.BackColor = ColorTranslator.FromHtml("#2ECC71")
+    End Sub
+
+    Private Sub btnConfirmPaid_MouseLeave(sender As Object, e As EventArgs) Handles btnConfirmPaid.MouseLeave
+        ' Return to original professional green
+        btnConfirmPaid.BackColor = ColorTranslator.FromHtml("#27AE60")
+    End Sub
+
+    ' FOR THE CANCEL BUTTON
+    Private Sub btnCancel_MouseEnter(sender As Object, e As EventArgs) Handles btnCancel.MouseEnter
+        btnCancel.BackColor = ColorTranslator.FromHtml("#FF5C5C")
+    End Sub
+
+    Private Sub btnCancel_MouseLeave(sender As Object, e As EventArgs) Handles btnCancel.MouseLeave
+        btnCancel.BackColor = ColorTranslator.FromHtml("#E74C3C")
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to Exit?", "Confirm", MessageBoxButtons.OKCancel)
+        If result = DialogResult.OK Then
+            Application.Exit()
+        End If
+    End Sub
 End Class

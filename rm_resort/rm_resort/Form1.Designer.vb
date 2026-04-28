@@ -41,8 +41,7 @@ Partial Class Loginform
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(311, 47)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(415, 61)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(191, 36)
         Me.Label1.TabIndex = 1
@@ -54,10 +53,9 @@ Partial Class Loginform
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft YaHei", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.ForeColor = System.Drawing.SystemColors.InactiveBorder
         Me.TextBox1.Location = New System.Drawing.Point(1, 0)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(534, 23)
+        Me.TextBox1.Size = New System.Drawing.Size(711, 29)
         Me.TextBox1.TabIndex = 2
         Me.TextBox1.Text = "ISLAND AURA BEACH RESORT"
         '
@@ -65,8 +63,7 @@ Partial Class Loginform
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(321, 99)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Location = New System.Drawing.Point(428, 129)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(0, 20)
         Me.Label2.TabIndex = 3
@@ -75,8 +72,7 @@ Partial Class Loginform
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Tai Le", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(284, 99)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Location = New System.Drawing.Point(379, 129)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(72, 16)
         Me.Label3.TabIndex = 4
@@ -86,8 +82,7 @@ Partial Class Loginform
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Tai Le", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(284, 157)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Location = New System.Drawing.Point(379, 205)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(75, 16)
         Me.Label4.TabIndex = 5
@@ -95,31 +90,28 @@ Partial Class Loginform
         '
         'txtUserName
         '
-        Me.txtUserName.Location = New System.Drawing.Point(287, 116)
-        Me.txtUserName.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtUserName.Location = New System.Drawing.Point(383, 152)
         Me.txtUserName.Multiline = True
         Me.txtUserName.Name = "txtUserName"
-        Me.txtUserName.Size = New System.Drawing.Size(230, 30)
+        Me.txtUserName.Size = New System.Drawing.Size(305, 38)
         Me.txtUserName.TabIndex = 6
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(287, 174)
-        Me.txtPassword.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtPassword.Location = New System.Drawing.Point(383, 228)
         Me.txtPassword.Multiline = True
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(230, 30)
+        Me.txtPassword.Size = New System.Drawing.Size(305, 38)
         Me.txtPassword.TabIndex = 7
         '
         'TextBox4
         '
         Me.TextBox4.BackColor = System.Drawing.Color.SteelBlue
-        Me.TextBox4.Location = New System.Drawing.Point(1, 17)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(2)
+        Me.TextBox4.Location = New System.Drawing.Point(1, 22)
         Me.TextBox4.Multiline = True
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(534, 12)
+        Me.TextBox4.Size = New System.Drawing.Size(711, 14)
         Me.TextBox4.TabIndex = 8
         '
         'btnCancel
@@ -127,10 +119,9 @@ Partial Class Loginform
         Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.Color.White
-        Me.btnCancel.Location = New System.Drawing.Point(303, 233)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnCancel.Location = New System.Drawing.Point(404, 305)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(87, 28)
+        Me.btnCancel.Size = New System.Drawing.Size(116, 37)
         Me.btnCancel.TabIndex = 9
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = False
@@ -140,10 +131,9 @@ Partial Class Loginform
         Me.btnLogin.BackColor = System.Drawing.Color.SteelBlue
         Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.ForeColor = System.Drawing.Color.White
-        Me.btnLogin.Location = New System.Drawing.Point(412, 233)
-        Me.btnLogin.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnLogin.Location = New System.Drawing.Point(549, 305)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(87, 28)
+        Me.btnLogin.Size = New System.Drawing.Size(116, 37)
         Me.btnLogin.TabIndex = 10
         Me.btnLogin.Text = "Login"
         Me.btnLogin.UseVisualStyleBackColor = False
@@ -151,10 +141,9 @@ Partial Class Loginform
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(8, 8)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox1.Location = New System.Drawing.Point(11, 10)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(272, 277)
+        Me.PictureBox1.Size = New System.Drawing.Size(363, 362)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -162,9 +151,9 @@ Partial Class Loginform
         'Loginform
         '
         Me.AcceptButton = Me.btnLogin
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(533, 292)
+        Me.ClientSize = New System.Drawing.Size(711, 382)
         Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.TextBox4)
@@ -176,7 +165,7 @@ Partial Class Loginform
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "Loginform"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "LoginForm"

@@ -140,7 +140,6 @@ Public Class FrmConfirm
         Me.Hide()
     End Sub
 
-<<<<<<< HEAD
     Private Sub dgvConfirmed_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvConfirmed.CellContentClick
 
     End Sub
@@ -159,9 +158,6 @@ Public Class FrmConfirm
         ' MessageBox.Show("List updated.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-
-End Class
-=======
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         Dim response = MsgBox("Are you sure you want to log out?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Logout")
         If response = MsgBoxResult.Yes Then
@@ -171,4 +167,3 @@ End Class
         End If
     End Sub
 End Class
->>>>>>> 630f838884799a16ab2bde1c60d156e452035f61

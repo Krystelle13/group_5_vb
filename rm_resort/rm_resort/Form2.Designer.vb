@@ -30,6 +30,7 @@ Partial Class Dashboardfrm
         Me.btnCurrent = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnConfirm = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.dgvBookings = New System.Windows.Forms.DataGridView()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -39,16 +40,16 @@ Partial Class Dashboardfrm
         Me.TxtSearch = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnRefresh = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
-        CType(Me.dgvBookings, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvBookings, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.RoyalBlue
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Panel1.Controls.Add(Me.btnLogout)
         Me.Panel1.Controls.Add(Me.btnSettings)
         Me.Panel1.Controls.Add(Me.btnCurrent)
@@ -56,67 +57,92 @@ Partial Class Dashboardfrm
         Me.Panel1.Controls.Add(Me.btnConfirm)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.ForeColor = System.Drawing.Color.Chocolate
-        Me.Panel1.Location = New System.Drawing.Point(8, 8)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel1.Location = New System.Drawing.Point(-7, -3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(144, 335)
+        Me.Panel1.Size = New System.Drawing.Size(195, 451)
         Me.Panel1.TabIndex = 0
         '
         'btnLogout
         '
-        Me.btnLogout.Location = New System.Drawing.Point(-6, 275)
+        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogout.ForeColor = System.Drawing.Color.Red
+        Me.btnLogout.Location = New System.Drawing.Point(-8, 360)
+        Me.btnLogout.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(159, 40)
+        Me.btnLogout.Size = New System.Drawing.Size(212, 52)
         Me.btnLogout.TabIndex = 11
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.UseVisualStyleBackColor = True
         '
         'btnSettings
         '
-        Me.btnSettings.Location = New System.Drawing.Point(-6, 207)
+        Me.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSettings.Location = New System.Drawing.Point(-8, 261)
+        Me.btnSettings.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSettings.Name = "btnSettings"
-        Me.btnSettings.Size = New System.Drawing.Size(159, 40)
+        Me.btnSettings.Size = New System.Drawing.Size(212, 52)
         Me.btnSettings.TabIndex = 10
         Me.btnSettings.Text = "Settings"
         Me.btnSettings.UseVisualStyleBackColor = True
         '
         'btnCurrent
         '
-        Me.btnCurrent.Location = New System.Drawing.Point(-6, 161)
+        Me.btnCurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCurrent.Location = New System.Drawing.Point(-8, 210)
+        Me.btnCurrent.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCurrent.Name = "btnCurrent"
-        Me.btnCurrent.Size = New System.Drawing.Size(159, 40)
+        Me.btnCurrent.Size = New System.Drawing.Size(212, 52)
         Me.btnCurrent.TabIndex = 9
         Me.btnCurrent.Text = "Currently Staying"
         Me.btnCurrent.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(-6, 115)
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(-8, 159)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(159, 40)
+        Me.Button1.Size = New System.Drawing.Size(212, 52)
         Me.Button1.TabIndex = 8
         Me.Button1.Text = "Confirmed"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'btnConfirm
         '
-        Me.btnConfirm.Location = New System.Drawing.Point(-6, 69)
+        Me.btnConfirm.AccessibleRole = System.Windows.Forms.AccessibleRole.Grip
+        Me.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnConfirm.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConfirm.ForeColor = System.Drawing.Color.LightCoral
+        Me.btnConfirm.Location = New System.Drawing.Point(-8, 108)
+        Me.btnConfirm.Margin = New System.Windows.Forms.Padding(4)
         Me.btnConfirm.Name = "btnConfirm"
-        Me.btnConfirm.Size = New System.Drawing.Size(159, 40)
+        Me.btnConfirm.Size = New System.Drawing.Size(212, 52)
         Me.btnConfirm.TabIndex = 6
         Me.btnConfirm.Text = "Pending"
         Me.btnConfirm.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(59, 19)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(73, 58)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
         '
         'dgvBookings
         '
         Me.dgvBookings.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab
         Me.dgvBookings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvBookings.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvBookings.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
         Me.dgvBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvBookings.Location = New System.Drawing.Point(157, 115)
+        Me.dgvBookings.Location = New System.Drawing.Point(209, 150)
+        Me.dgvBookings.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvBookings.Name = "dgvBookings"
         Me.dgvBookings.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.dgvBookings.Size = New System.Drawing.Size(372, 173)
+        Me.dgvBookings.Size = New System.Drawing.Size(496, 226)
         Me.dgvBookings.TabIndex = 3
         '
         'ContextMenuStrip1
@@ -128,8 +154,7 @@ Partial Class Dashboardfrm
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(184, 29)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(287, 38)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(299, 36)
         Me.Label1.TabIndex = 3
@@ -142,63 +167,74 @@ Partial Class Dashboardfrm
         '
         'btnConfirmPaid
         '
-        Me.btnConfirmPaid.Location = New System.Drawing.Point(167, 294)
+        Me.btnConfirmPaid.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnConfirmPaid.Location = New System.Drawing.Point(223, 384)
+        Me.btnConfirmPaid.Margin = New System.Windows.Forms.Padding(4)
         Me.btnConfirmPaid.Name = "btnConfirmPaid"
-        Me.btnConfirmPaid.Size = New System.Drawing.Size(147, 40)
+        Me.btnConfirmPaid.Size = New System.Drawing.Size(196, 52)
         Me.btnConfirmPaid.TabIndex = 12
         Me.btnConfirmPaid.Text = "Confirmed Paid"
-        Me.btnConfirmPaid.UseVisualStyleBackColor = True
+        Me.btnConfirmPaid.UseVisualStyleBackColor = False
         '
         'TxtSearch
         '
-        Me.TxtSearch.Location = New System.Drawing.Point(220, 88)
+        Me.TxtSearch.Location = New System.Drawing.Point(267, 112)
+        Me.TxtSearch.Margin = New System.Windows.Forms.Padding(4)
         Me.TxtSearch.Name = "TxtSearch"
-        Me.TxtSearch.Size = New System.Drawing.Size(280, 20)
+        Me.TxtSearch.Size = New System.Drawing.Size(361, 25)
         Me.TxtSearch.TabIndex = 13
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(170, 90)
+        Me.Label2.Location = New System.Drawing.Point(207, 117)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 13)
+        Me.Label2.Size = New System.Drawing.Size(52, 17)
         Me.Label2.TabIndex = 14
         Me.Label2.Text = "Search:"
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(353, 294)
+        Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnCancel.Location = New System.Drawing.Point(471, 384)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(168, 40)
+        Me.btnCancel.Size = New System.Drawing.Size(213, 52)
         Me.btnCancel.TabIndex = 15
         Me.btnCancel.Text = "Cancel Reservation"
-        Me.btnCancel.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(36, 13)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(55, 44)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
+        Me.btnCancel.UseVisualStyleBackColor = False
         '
         'btnRefresh
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(460, 12)
+        Me.btnRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnRefresh.Location = New System.Drawing.Point(636, 112)
+        Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(61, 23)
+        Me.btnRefresh.Size = New System.Drawing.Size(69, 26)
         Me.btnRefresh.TabIndex = 16
         Me.btnRefresh.Text = "Refresh"
-        Me.btnRefresh.UseVisualStyleBackColor = True
+        Me.btnRefresh.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Button2.Location = New System.Drawing.Point(669, -3)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(45, 26)
+        Me.Button2.TabIndex = 17
+        Me.Button2.Text = "X"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Dashboardfrm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(533, 346)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(711, 452)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.Label2)
@@ -207,13 +243,13 @@ Partial Class Dashboardfrm
         Me.Controls.Add(Me.dgvBookings)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "Dashboardfrm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form2"
+        Me.Text = "Dashboard"
         Me.Panel1.ResumeLayout(False)
-        CType(Me.dgvBookings, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvBookings, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -236,4 +272,5 @@ Partial Class Dashboardfrm
     Friend WithEvents Label2 As Label
     Friend WithEvents btnCancel As Button
     Friend WithEvents btnRefresh As Button
+    Friend WithEvents Button2 As Button
 End Class
