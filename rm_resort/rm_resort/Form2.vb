@@ -289,4 +289,8 @@ Public Class Dashboardfrm
             Application.Exit()
         End If
     End Sub
+
+    Private Sub dgvBookings_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBookings.CellContentClick
+
+    End Sub
 End Class

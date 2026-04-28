@@ -77,6 +77,7 @@ Partial Class Dashboardfrm
         'btnSettings
         '
         Me.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSettings.ForeColor = System.Drawing.Color.Orange
         Me.btnSettings.Location = New System.Drawing.Point(-8, 261)
         Me.btnSettings.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSettings.Name = "btnSettings"
@@ -88,6 +89,7 @@ Partial Class Dashboardfrm
         'btnCurrent
         '
         Me.btnCurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCurrent.ForeColor = System.Drawing.Color.Orange
         Me.btnCurrent.Location = New System.Drawing.Point(-8, 210)
         Me.btnCurrent.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCurrent.Name = "btnCurrent"
@@ -99,6 +101,7 @@ Partial Class Dashboardfrm
         'Button1
         '
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.Color.Orange
         Me.Button1.Location = New System.Drawing.Point(-8, 159)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
@@ -112,7 +115,7 @@ Partial Class Dashboardfrm
         Me.btnConfirm.AccessibleRole = System.Windows.Forms.AccessibleRole.Grip
         Me.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnConfirm.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConfirm.ForeColor = System.Drawing.Color.LightCoral
+        Me.btnConfirm.ForeColor = System.Drawing.Color.Orange
         Me.btnConfirm.Location = New System.Drawing.Point(-8, 108)
         Me.btnConfirm.Margin = New System.Windows.Forms.Padding(4)
         Me.btnConfirm.Name = "btnConfirm"
@@ -167,7 +170,7 @@ Partial Class Dashboardfrm
         '
         'btnConfirmPaid
         '
-        Me.btnConfirmPaid.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnConfirmPaid.BackColor = System.Drawing.Color.SteelBlue
         Me.btnConfirmPaid.Location = New System.Drawing.Point(223, 384)
         Me.btnConfirmPaid.Margin = New System.Windows.Forms.Padding(4)
         Me.btnConfirmPaid.Name = "btnConfirmPaid"
@@ -196,7 +199,7 @@ Partial Class Dashboardfrm
         '
         'btnCancel
         '
-        Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnCancel.Location = New System.Drawing.Point(471, 384)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCancel.Name = "btnCancel"

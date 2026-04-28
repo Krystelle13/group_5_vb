@@ -34,6 +34,7 @@ Partial Class Loginform
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnLogin = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -41,7 +42,7 @@ Partial Class Loginform
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(415, 61)
+        Me.Label1.Location = New System.Drawing.Point(449, 61)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(191, 36)
         Me.Label1.TabIndex = 1
@@ -148,12 +149,27 @@ Partial Class Loginform
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(665, 37)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(45, 30)
+        Me.Button2.TabIndex = 26
+        Me.Button2.Text = "X"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'Loginform
         '
         Me.AcceptButton = Me.btnLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(711, 382)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.TextBox4)
@@ -186,4 +202,5 @@ Partial Class Loginform
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents btnCancel As Button
     Friend WithEvents btnLogin As Button
+    Friend WithEvents Button2 As Button
 End Class

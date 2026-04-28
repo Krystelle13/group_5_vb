@@ -65,7 +65,7 @@ Partial Class FrmConfirm
         '
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogout.ForeColor = System.Drawing.Color.Red
-        Me.btnLogout.Location = New System.Drawing.Point(-8, 360)
+        Me.btnLogout.Location = New System.Drawing.Point(-8, 346)
         Me.btnLogout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(212, 52)
@@ -77,7 +77,7 @@ Partial Class FrmConfirm
         '
         Me.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSettings.ForeColor = System.Drawing.Color.Orange
-        Me.btnSettings.Location = New System.Drawing.Point(-8, 271)
+        Me.btnSettings.Location = New System.Drawing.Point(-8, 238)
         Me.btnSettings.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSettings.Name = "btnSettings"
         Me.btnSettings.Size = New System.Drawing.Size(212, 52)
@@ -89,7 +89,7 @@ Partial Class FrmConfirm
         '
         Me.btnCurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCurrent.ForeColor = System.Drawing.Color.Orange
-        Me.btnCurrent.Location = New System.Drawing.Point(-8, 211)
+        Me.btnCurrent.Location = New System.Drawing.Point(-20, 190)
         Me.btnCurrent.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCurrent.Name = "btnCurrent"
         Me.btnCurrent.Size = New System.Drawing.Size(212, 52)
@@ -101,7 +101,7 @@ Partial Class FrmConfirm
         '
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.Color.Orange
-        Me.Button1.Location = New System.Drawing.Point(-8, 150)
+        Me.Button1.Location = New System.Drawing.Point(-8, 141)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(212, 52)
@@ -124,7 +124,7 @@ Partial Class FrmConfirm
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(48, 17)
+        Me.PictureBox1.Location = New System.Drawing.Point(57, 17)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(73, 58)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -152,7 +152,7 @@ Partial Class FrmConfirm
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(332, 25)
+        Me.Label1.Location = New System.Drawing.Point(363, 47)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(181, 36)
         Me.Label1.TabIndex = 15
@@ -165,13 +165,14 @@ Partial Class FrmConfirm
         '
         'btnCheckin
         '
-        Me.btnCheckin.Location = New System.Drawing.Point(261, 384)
+        Me.btnCheckin.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnCheckin.Location = New System.Drawing.Point(254, 384)
         Me.btnCheckin.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCheckin.Name = "btnCheckin"
         Me.btnCheckin.Size = New System.Drawing.Size(391, 52)
         Me.btnCheckin.TabIndex = 16
         Me.btnCheckin.Text = "Check in"
-        Me.btnCheckin.UseVisualStyleBackColor = True
+        Me.btnCheckin.UseVisualStyleBackColor = False
         '
         'TxtSearch
         '

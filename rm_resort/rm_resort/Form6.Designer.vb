@@ -40,6 +40,7 @@ Partial Class CurrentStayfrm
         Me.TxtSearchCurrent = New System.Windows.Forms.TextBox()
         Me.btnCheckout = New System.Windows.Forms.Button()
         Me.btnRefresh = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvCurrentStay, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,7 +48,7 @@ Partial Class CurrentStayfrm
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.RoyalBlue
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Panel1.Controls.Add(Me.btnLogout)
         Me.Panel1.Controls.Add(Me.btnSettings)
         Me.Panel1.Controls.Add(Me.btnCurrent)
@@ -62,16 +63,23 @@ Partial Class CurrentStayfrm
         '
         'btnLogout
         '
+        Me.btnLogout.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnLogout.FlatAppearance.BorderSize = 0
+        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogout.ForeColor = System.Drawing.Color.Snow
         Me.btnLogout.Location = New System.Drawing.Point(-8, 360)
         Me.btnLogout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(212, 52)
         Me.btnLogout.TabIndex = 11
         Me.btnLogout.Text = "Logout"
-        Me.btnLogout.UseVisualStyleBackColor = True
+        Me.btnLogout.UseVisualStyleBackColor = False
         '
         'btnSettings
         '
+        Me.btnSettings.FlatAppearance.BorderSize = 0
+        Me.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSettings.ForeColor = System.Drawing.Color.Orange
         Me.btnSettings.Location = New System.Drawing.Point(-8, 271)
         Me.btnSettings.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSettings.Name = "btnSettings"
@@ -82,6 +90,9 @@ Partial Class CurrentStayfrm
         '
         'btnCurrent
         '
+        Me.btnCurrent.FlatAppearance.BorderSize = 0
+        Me.btnCurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCurrent.ForeColor = System.Drawing.Color.Orange
         Me.btnCurrent.Location = New System.Drawing.Point(-8, 211)
         Me.btnCurrent.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCurrent.Name = "btnCurrent"
@@ -92,6 +103,9 @@ Partial Class CurrentStayfrm
         '
         'Button1
         '
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.Color.Orange
         Me.Button1.Location = New System.Drawing.Point(-8, 150)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
@@ -102,8 +116,12 @@ Partial Class CurrentStayfrm
         '
         'btnConfirm
         '
+        Me.btnConfirm.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.btnConfirm.FlatAppearance.BorderSize = 0
+        Me.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnConfirm.ForeColor = System.Drawing.Color.Orange
         Me.btnConfirm.Location = New System.Drawing.Point(-8, 90)
-        Me.btnConfirm.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnConfirm.Margin = New System.Windows.Forms.Padding(0)
         Me.btnConfirm.Name = "btnConfirm"
         Me.btnConfirm.Size = New System.Drawing.Size(212, 52)
         Me.btnConfirm.TabIndex = 6
@@ -124,6 +142,7 @@ Partial Class CurrentStayfrm
         '
         Me.dgvCurrentStay.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab
         Me.dgvCurrentStay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvCurrentStay.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvCurrentStay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCurrentStay.Location = New System.Drawing.Point(207, 158)
         Me.dgvCurrentStay.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
@@ -140,7 +159,7 @@ Partial Class CurrentStayfrm
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(253, 35)
+        Me.Label1.Location = New System.Drawing.Point(293, 54)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(308, 36)
         Me.Label1.TabIndex = 21
@@ -166,34 +185,49 @@ Partial Class CurrentStayfrm
         Me.TxtSearchCurrent.Location = New System.Drawing.Point(287, 124)
         Me.TxtSearchCurrent.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TxtSearchCurrent.Name = "TxtSearchCurrent"
-        Me.TxtSearchCurrent.Size = New System.Drawing.Size(392, 25)
+        Me.TxtSearchCurrent.Size = New System.Drawing.Size(322, 25)
         Me.TxtSearchCurrent.TabIndex = 23
         '
         'btnCheckout
         '
+        Me.btnCheckout.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnCheckout.Location = New System.Drawing.Point(261, 384)
         Me.btnCheckout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCheckout.Name = "btnCheckout"
         Me.btnCheckout.Size = New System.Drawing.Size(391, 52)
         Me.btnCheckout.TabIndex = 22
         Me.btnCheckout.Text = "Check Out"
-        Me.btnCheckout.UseVisualStyleBackColor = True
+        Me.btnCheckout.UseVisualStyleBackColor = False
         '
         'btnRefresh
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(621, 14)
+        Me.btnRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnRefresh.Location = New System.Drawing.Point(617, 124)
         Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(81, 30)
+        Me.btnRefresh.Size = New System.Drawing.Size(86, 26)
         Me.btnRefresh.TabIndex = 17
         Me.btnRefresh.Text = "Refresh"
-        Me.btnRefresh.UseVisualStyleBackColor = True
+        Me.btnRefresh.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Button2.Location = New System.Drawing.Point(670, -5)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(45, 30)
+        Me.Button2.TabIndex = 25
+        Me.Button2.Text = "X"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'CurrentStayfrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(711, 452)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.dgvCurrentStay)
@@ -230,4 +264,5 @@ Partial Class CurrentStayfrm
     Friend WithEvents TxtSearchCurrent As TextBox
     Friend WithEvents btnCheckout As Button
     Friend WithEvents btnRefresh As Button
+    Friend WithEvents Button2 As Button
 End Class
