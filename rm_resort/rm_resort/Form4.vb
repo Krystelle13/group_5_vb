@@ -7,6 +7,8 @@ Public Class FrmConfirm
     ' 2. Pagka-load ng Form, kusa niyang tatawagin ang listahan
     Private Sub FrmConfirm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadConfirmedBookings()
+        btnCheckin.Enabled = False ' Disable sa simula
+
     End Sub
 
     ' 3. Function para hulaan ang mga 'Paid' customers
@@ -112,6 +114,48 @@ Public Class FrmConfirm
         f1.Show()
         Me.Hide()
     End Sub
+
+
+    Private Sub dgvConfirmed_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvConfirmed.CellContentDoubleClick
+        If e.RowIndex >= 0 Then
+            btnCheckin.Enabled = True
+            dgvConfirmed.Rows(e.RowIndex).Selected = True
+        End If
+    End Sub
+
+    Private Sub btnCheckin_Click(sender As Object, e As EventArgs) Handles btnCheckin.Click
+        If dgvConfirmed.SelectedRows.Count > 0 Then
+            Dim bookingID As String = dgvConfirmed.CurrentRow.Cells("ID").Value.ToString()
+            Dim guestName As String = dgvConfirmed.CurrentRow.Cells("Guest Name").Value.ToString()
+
+            If MessageBox.Show("Check-in " & guestName & " now?", "Confirm Check-in", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                Try
+                    If conn.State = ConnectionState.Closed Then conn.Open()
+                    ' I-update ang status sa 'Staying'
+                    Dim sql As String = "UPDATE bookings SET status = 'Staying' WHERE booking_id = @id"
+                    Dim cmd As New MySqlCommand(sql, conn)
+                    cmd.Parameters.AddWithValue("@id", bookingID)
+
+                    If cmd.ExecuteNonQuery() > 0 Then
+                        MessageBox.Show(guestName & " is now Checked-in!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        LoadConfirmedBookings() ' Refresh list
+                        btnCheckin.Enabled = False ' Disable ulit
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message)
+                Finally
+                    conn.Close()
+                End Try
+            End If
+        End If
+    End Sub
+
+    Private Sub btnCurrent_Click(sender As Object, e As EventArgs) Handles btnCurrent.Click
+        Dim f1 As New CurrentStayfrm
+        f1.Show()
+        Me.Hide()
+    End Sub
+
 
 
 

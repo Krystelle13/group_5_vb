@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FrmConfirm
+Partial Class CurrentStayfrm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,7 +23,7 @@ Partial Class FrmConfirm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmConfirm))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CurrentStayfrm))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.btnSettings = New System.Windows.Forms.Button()
@@ -31,17 +31,17 @@ Partial Class FrmConfirm
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnConfirm = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.dgvConfirmed = New System.Windows.Forms.DataGridView()
+        Me.dgvCurrentStay = New System.Windows.Forms.DataGridView()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
-        Me.btnCheckin = New System.Windows.Forms.Button()
-        Me.TxtSearch = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.TxtSearchCurrent = New System.Windows.Forms.TextBox()
+        Me.btnCheckout = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvConfirmed, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvCurrentStay, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -54,11 +54,11 @@ Partial Class FrmConfirm
         Me.Panel1.Controls.Add(Me.btnConfirm)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.ForeColor = System.Drawing.Color.Chocolate
-        Me.Panel1.Location = New System.Drawing.Point(6, 6)
+        Me.Panel1.Location = New System.Drawing.Point(0, -4)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(144, 335)
-        Me.Panel1.TabIndex = 13
+        Me.Panel1.Size = New System.Drawing.Size(150, 345)
+        Me.Panel1.TabIndex = 19
         '
         'btnLogout
         '
@@ -108,7 +108,7 @@ Partial Class FrmConfirm
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(36, 13)
+        Me.PictureBox1.Location = New System.Drawing.Point(47, 15)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(55, 44)
@@ -116,15 +116,15 @@ Partial Class FrmConfirm
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
-        'dgvConfirmed
+        'dgvCurrentStay
         '
-        Me.dgvConfirmed.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab
-        Me.dgvConfirmed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvConfirmed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvConfirmed.Location = New System.Drawing.Point(155, 121)
-        Me.dgvConfirmed.Name = "dgvConfirmed"
-        Me.dgvConfirmed.Size = New System.Drawing.Size(372, 167)
-        Me.dgvConfirmed.TabIndex = 14
+        Me.dgvCurrentStay.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab
+        Me.dgvCurrentStay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvCurrentStay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvCurrentStay.Location = New System.Drawing.Point(155, 121)
+        Me.dgvCurrentStay.Name = "dgvCurrentStay"
+        Me.dgvCurrentStay.Size = New System.Drawing.Size(372, 167)
+        Me.dgvCurrentStay.TabIndex = 20
         '
         'ContextMenuStrip1
         '
@@ -135,33 +135,17 @@ Partial Class FrmConfirm
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(249, 19)
+        Me.Label1.Location = New System.Drawing.Point(190, 27)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(181, 36)
-        Me.Label1.TabIndex = 15
-        Me.Label1.Text = "Confirm List"
+        Me.Label1.Size = New System.Drawing.Size(308, 36)
+        Me.Label1.TabIndex = 21
+        Me.Label1.Text = "Currently Staying List"
         '
         'tmrRefresh
         '
         Me.tmrRefresh.Enabled = True
         Me.tmrRefresh.Interval = 5000
-        '
-        'btnCheckin
-        '
-        Me.btnCheckin.Location = New System.Drawing.Point(196, 294)
-        Me.btnCheckin.Name = "btnCheckin"
-        Me.btnCheckin.Size = New System.Drawing.Size(293, 40)
-        Me.btnCheckin.TabIndex = 16
-        Me.btnCheckin.Text = "Check in"
-        Me.btnCheckin.UseVisualStyleBackColor = True
-        '
-        'TxtSearch
-        '
-        Me.TxtSearch.Location = New System.Drawing.Point(215, 95)
-        Me.TxtSearch.Name = "TxtSearch"
-        Me.TxtSearch.Size = New System.Drawing.Size(295, 20)
-        Me.TxtSearch.TabIndex = 17
         '
         'Label2
         '
@@ -169,26 +153,42 @@ Partial Class FrmConfirm
         Me.Label2.Location = New System.Drawing.Point(165, 98)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(44, 13)
-        Me.Label2.TabIndex = 18
+        Me.Label2.TabIndex = 24
         Me.Label2.Text = "Search:"
         '
-        'FrmConfirm
+        'TxtSearchCurrent
+        '
+        Me.TxtSearchCurrent.Location = New System.Drawing.Point(215, 95)
+        Me.TxtSearchCurrent.Name = "TxtSearchCurrent"
+        Me.TxtSearchCurrent.Size = New System.Drawing.Size(295, 20)
+        Me.TxtSearchCurrent.TabIndex = 23
+        '
+        'btnCheckout
+        '
+        Me.btnCheckout.Location = New System.Drawing.Point(196, 294)
+        Me.btnCheckout.Name = "btnCheckout"
+        Me.btnCheckout.Size = New System.Drawing.Size(293, 40)
+        Me.btnCheckout.TabIndex = 22
+        Me.btnCheckout.Text = "Check Out"
+        Me.btnCheckout.UseVisualStyleBackColor = True
+        '
+        'CurrentStayfrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(533, 346)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TxtSearch)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.dgvConfirmed)
+        Me.Controls.Add(Me.dgvCurrentStay)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnCheckin)
-        Me.Name = "FrmConfirm"
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.TxtSearchCurrent)
+        Me.Controls.Add(Me.btnCheckout)
+        Me.Name = "CurrentStayfrm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form4"
+        Me.Text = "Form6"
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvConfirmed, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvCurrentStay, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -201,12 +201,12 @@ Partial Class FrmConfirm
     Friend WithEvents Button1 As Button
     Friend WithEvents btnConfirm As Button
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents dgvConfirmed As DataGridView
+    Friend WithEvents dgvCurrentStay As DataGridView
     Friend WithEvents ColorDialog1 As ColorDialog
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents Label1 As Label
     Friend WithEvents tmrRefresh As Timer
-    Friend WithEvents btnCheckin As Button
-    Friend WithEvents TxtSearch As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents TxtSearchCurrent As TextBox
+    Friend WithEvents btnCheckout As Button
 End Class

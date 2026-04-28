@@ -242,4 +242,10 @@ Public Class Dashboardfrm
         End If
 
     End Sub
+
+    Private Sub btnCurrent_Click(sender As Object, e As EventArgs) Handles btnCurrent.Click
+        Dim f1 As New CurrentStayfrm
+        f1.Show()
+        Me.Hide()
+    End Sub
 End Class
