@@ -248,4 +248,19 @@ Public Class Dashboardfrm
         f1.Show()
         Me.Hide()
     End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        ' 1. Reload the data from the database
+        LoadBookings()
+
+        ' 2. Clear the search text box
+        TxtSearch.Clear()
+
+        ' 3. Reset buttons to disabled state for safety
+        btnConfirmPaid.Enabled = False
+        btnCancel.Enabled = False
+
+        ' 4. Optional: Inform the user
+        ' MessageBox.Show("Data refreshed successfully.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 End Class

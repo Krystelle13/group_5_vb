@@ -40,6 +40,7 @@ Partial Class Dashboardfrm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnRefresh = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvBookings, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -184,11 +185,21 @@ Partial Class Dashboardfrm
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
+        'btnRefresh
+        '
+        Me.btnRefresh.Location = New System.Drawing.Point(460, 12)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(61, 23)
+        Me.btnRefresh.TabIndex = 16
+        Me.btnRefresh.Text = "Refresh"
+        Me.btnRefresh.UseVisualStyleBackColor = True
+        '
         'Dashboardfrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(533, 346)
+        Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TxtSearch)
@@ -224,4 +235,5 @@ Partial Class Dashboardfrm
     Friend WithEvents TxtSearch As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents btnCancel As Button
+    Friend WithEvents btnRefresh As Button
 End Class

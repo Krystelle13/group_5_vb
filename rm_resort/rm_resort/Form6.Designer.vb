@@ -39,6 +39,7 @@ Partial Class CurrentStayfrm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TxtSearchCurrent = New System.Windows.Forms.TextBox()
         Me.btnCheckout = New System.Windows.Forms.Button()
+        Me.btnRefresh = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvCurrentStay, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -172,11 +173,21 @@ Partial Class CurrentStayfrm
         Me.btnCheckout.Text = "Check Out"
         Me.btnCheckout.UseVisualStyleBackColor = True
         '
+        'btnRefresh
+        '
+        Me.btnRefresh.Location = New System.Drawing.Point(466, 11)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(61, 23)
+        Me.btnRefresh.TabIndex = 17
+        Me.btnRefresh.Text = "Refresh"
+        Me.btnRefresh.UseVisualStyleBackColor = True
+        '
         'CurrentStayfrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(533, 346)
+        Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.dgvCurrentStay)
         Me.Controls.Add(Me.Label1)
@@ -209,4 +220,5 @@ Partial Class CurrentStayfrm
     Friend WithEvents Label2 As Label
     Friend WithEvents TxtSearchCurrent As TextBox
     Friend WithEvents btnCheckout As Button
+    Friend WithEvents btnRefresh As Button
 End Class

@@ -131,4 +131,18 @@ Public Class CurrentStayfrm
             Me.Dispose()
         End If
     End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        ' 1. Reload the latest data from the database
+        LoadCurrentStay()
+
+        ' 2. Clear the search text box so the full list is shown
+        TxtSearchCurrent.Clear()
+
+        ' 3. Disable the checkout button until a guest is selected again
+        btnCheckout.Enabled = False
+
+        ' Optional: Small feedback to show it worked
+        ' MessageBox.Show("List updated successfully.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 End Class

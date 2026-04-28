@@ -156,9 +156,23 @@ Public Class FrmConfirm
         Me.Hide()
     End Sub
 
+    Private Sub dgvConfirmed_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvConfirmed.CellContentClick
 
+    End Sub
 
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        ' 1. Reload the data from the database
+        LoadConfirmedBookings()
 
-    ' 4. (Optional) Refresh Button kung gusto mong i-update ang listahan manual
+        ' 2. Clear the search box to show all confirmed guests
+        TxtSearch.Clear()
+
+        ' 3. Reset the Check-in button to disabled
+        btnCheckin.Enabled = False
+
+        ' Optional: Show a small toast/message in the status bar if you have one
+        ' MessageBox.Show("List updated.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
 
 End Class

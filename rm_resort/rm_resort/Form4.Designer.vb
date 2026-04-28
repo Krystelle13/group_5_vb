@@ -39,6 +39,7 @@ Partial Class FrmConfirm
         Me.btnCheckin = New System.Windows.Forms.Button()
         Me.TxtSearch = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnRefresh = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvConfirmed, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -172,11 +173,21 @@ Partial Class FrmConfirm
         Me.Label2.TabIndex = 18
         Me.Label2.Text = "Search:"
         '
+        'btnRefresh
+        '
+        Me.btnRefresh.Location = New System.Drawing.Point(449, 57)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(61, 23)
+        Me.btnRefresh.TabIndex = 17
+        Me.btnRefresh.Text = "Refresh"
+        Me.btnRefresh.UseVisualStyleBackColor = True
+        '
         'FrmConfirm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(533, 346)
+        Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TxtSearch)
         Me.Controls.Add(Me.Panel1)
@@ -209,4 +220,5 @@ Partial Class FrmConfirm
     Friend WithEvents btnCheckin As Button
     Friend WithEvents TxtSearch As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents btnRefresh As Button
 End Class
