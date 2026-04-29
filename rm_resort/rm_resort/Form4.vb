@@ -177,4 +177,14 @@ Public Class FrmConfirm
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
+        Dim f1 As New FrmTotalIncome
+        f1.Show()
+        Me.Hide()
+    End Sub
 End Class

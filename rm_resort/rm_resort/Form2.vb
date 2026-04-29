@@ -293,4 +293,10 @@ Public Class Dashboardfrm
     Private Sub dgvBookings_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBookings.CellContentClick
 
     End Sub
+
+    Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
+        Dim f1 As New FrmTotalIncome
+        f1.Show()
+        Me.Hide()
+    End Sub
 End Class

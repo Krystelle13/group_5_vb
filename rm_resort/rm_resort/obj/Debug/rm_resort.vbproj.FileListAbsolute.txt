@@ -89,3 +89,4 @@ C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.Form3.resourc
 C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.Dashboardfrm.resources
 C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.FrmConfirm.resources
 C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.CurrentStayfrm.resources
+C:\xampp\htdocs\group_5_vb\rm_resort\rm_resort\obj\Debug\rm_resort.FrmTotalIncome.resources

@@ -15,7 +15,7 @@ Public Class Loginform
         If txtUserName.Text = "aura" And txtPassword.Text = "auraG5" Then
             MsgBox("Access Granted!", MsgBoxStyle.Information, "Success")
 
-            Dim mainMENU As New Dashboardfrm
+            Dim mainMENU As New FrmTotalIncome
             mainMENU.Show()
 
             Me.Hide()
