@@ -77,7 +77,7 @@ Partial Class FrmTotalIncome
         '
         'btnRefresh
         '
-        Me.btnRefresh.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnRefresh.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRefresh.Location = New System.Drawing.Point(596, 1)
         Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4)
@@ -124,7 +124,7 @@ Partial Class FrmTotalIncome
         Me.btnLogout.FlatAppearance.BorderSize = 0
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogout.ForeColor = System.Drawing.Color.Snow
-        Me.btnLogout.Location = New System.Drawing.Point(-8, 346)
+        Me.btnLogout.Location = New System.Drawing.Point(0, 347)
         Me.btnLogout.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(200, 52)
@@ -194,9 +194,9 @@ Partial Class FrmTotalIncome
         Me.Panel1.Controls.Add(Me.btnConfirm)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.ForeColor = System.Drawing.Color.Chocolate
-        Me.Panel1.Location = New System.Drawing.Point(1, -1)
+        Me.Panel1.Location = New System.Drawing.Point(-2, -1)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(192, 451)
+        Me.Panel1.Size = New System.Drawing.Size(195, 451)
         Me.Panel1.TabIndex = 20
         '
         'dgvTotal
@@ -322,7 +322,7 @@ Partial Class FrmTotalIncome
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmTotalIncome"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form7"
+        Me.Text = "DashboardForm"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.dgvTotal, System.ComponentModel.ISupportInitialize).EndInit()

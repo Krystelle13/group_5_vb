@@ -56,9 +56,9 @@ Partial Class FrmConfirm
         Me.Panel1.Controls.Add(Me.btnConfirm)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.ForeColor = System.Drawing.Color.Chocolate
-        Me.Panel1.Location = New System.Drawing.Point(8, 8)
+        Me.Panel1.Location = New System.Drawing.Point(-3, -1)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(192, 438)
+        Me.Panel1.Size = New System.Drawing.Size(203, 447)
         Me.Panel1.TabIndex = 13
         '
         'btnLogout
@@ -70,7 +70,7 @@ Partial Class FrmConfirm
         Me.btnLogout.Location = New System.Drawing.Point(-8, 346)
         Me.btnLogout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(200, 52)
+        Me.btnLogout.Size = New System.Drawing.Size(212, 52)
         Me.btnLogout.TabIndex = 11
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.UseVisualStyleBackColor = False
@@ -239,7 +239,7 @@ Partial Class FrmConfirm
         Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "FrmConfirm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form4"
+        Me.Text = "ConfirmForm"
         Me.Panel1.ResumeLayout(False)
         CType(Me.dgvConfirmed, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

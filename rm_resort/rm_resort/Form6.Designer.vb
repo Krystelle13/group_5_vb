@@ -240,7 +240,7 @@ Partial Class CurrentStayfrm
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "CurrentStayfrm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form6"
+        Me.Text = "CurrentStayingForm"
         Me.Panel1.ResumeLayout(False)
         CType(Me.dgvCurrentStay, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

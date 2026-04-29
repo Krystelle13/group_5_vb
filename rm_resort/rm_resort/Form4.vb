@@ -11,10 +11,10 @@ Public Class FrmConfirm
         dgvConfirmed.MultiSelect = False
 
         LoadConfirmedBookings()
-        btnCheckin.Enabled = False
+        btnCheckin.Enabled = False ' Disabled sa simula hangga't walang napipiling guest
     End Sub
 
-    ' 3. Function para hulaan ang mga 'Paid' customers
+    ' 3. Function para i-load ang mga 'Confirmed' bookings
     Public Sub LoadConfirmedBookings()
         Try
             If conn.State = ConnectionState.Closed Then conn.Open()
@@ -79,14 +79,21 @@ Public Class FrmConfirm
         End Try
     End Sub
 
-    ' DOUBLE CLICK TO POP UP CHECK-IN
+    ' SINGLE CLICK: Para i-select muna ang guest at i-enable ang button
+    Private Sub dgvConfirmed_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvConfirmed.CellClick
+        If e.RowIndex >= 0 Then
+            btnCheckin.Enabled = True ' Nagiging enabled lang kapag may napiling guest
+        End If
+    End Sub
+
+    ' DOUBLE CLICK: Doon pa lang lalabas ang Check-in logic
     Private Sub dgvConfirmed_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvConfirmed.CellMouseDoubleClick
         If e.RowIndex >= 0 Then
-            ' Force selection of the row that was double clicked
+            ' Siguradong selected ang row
             dgvConfirmed.Rows(e.RowIndex).Selected = True
             btnCheckin.Enabled = True
 
-            ' Run the logic
+            ' Tawagin ang Check-in Process
             PerformCheckInAction()
         End If
     End Sub
@@ -107,14 +114,16 @@ Public Class FrmConfirm
             If MessageBox.Show("Check-in " & guestName & " now?", "Confirm Check-in", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 Try
                     If conn.State = ConnectionState.Closed Then conn.Open()
+                    ' Baguhin ang status mula 'Confirmed' patungong 'Staying'
                     Dim sql As String = "UPDATE bookings SET status = 'Staying' WHERE booking_id = @id"
                     Dim cmd As New MySqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@id", bookingID)
 
                     If cmd.ExecuteNonQuery() > 0 Then
                         MessageBox.Show(guestName & " is now Checked-in!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        LoadConfirmedBookings() ' Refresh
-                        btnCheckin.Enabled = False
+                        LoadConfirmedBookings() ' Refresh ang listahan para mawala na ang pumasok na guest
+                        btnCheckin.Enabled = False ' Disable ulit pagkatapos ng process
+                        dgvConfirmed.ClearSelection() ' Linisin ang selection
                     End If
                 Catch ex As Exception
                     MessageBox.Show(ex.Message)
@@ -140,22 +149,10 @@ Public Class FrmConfirm
         Me.Hide()
     End Sub
 
-    Private Sub dgvConfirmed_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvConfirmed.CellContentClick
-
-    End Sub
-
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
-        ' 1. Reload the data from the database
         LoadConfirmedBookings()
-
-        ' 2. Clear the search box to show all confirmed guests
         TxtSearch.Clear()
-
-        ' 3. Reset the Check-in button to disabled
         btnCheckin.Enabled = False
-
-        ' Optional: Show a small toast/message in the status bar if you have one
-        ' MessageBox.Show("List updated.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
@@ -172,14 +169,6 @@ Public Class FrmConfirm
         If result = DialogResult.OK Then
             Application.Exit()
         End If
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
     End Sub
 
     Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click

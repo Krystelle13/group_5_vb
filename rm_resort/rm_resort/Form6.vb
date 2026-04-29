@@ -7,9 +7,9 @@ Public Class CurrentStayfrm
             If conn.State = ConnectionState.Closed Then conn.Open()
             ' Query: Kasama ang Email at Cottage Name gamit ang INNER JOIN
             Dim sql As String = "SELECT b.booking_id AS 'ID', b.guest_name AS 'Guest Name', b.guest_email AS 'Email', " &
-              "r.room_name AS 'Cottage/Room', b.check_in_date AS 'Check-in Date', b.total_price AS 'Total' " &
-              "FROM bookings b INNER JOIN rooms r ON b.room_id = r.room_id " &
-              "WHERE b.status = 'Staying' ORDER BY b.booking_id DESC"
+       "r.room_name AS 'Cottage/Room', b.check_in_date AS 'Check-in Date', b.total_price AS 'Total' " &
+       "FROM bookings b INNER JOIN rooms r ON b.room_id = r.room_id " &
+       "WHERE b.status = 'Staying' ORDER BY b.booking_id DESC"
 
             Dim adp As New MySqlDataAdapter(sql, conn)
             Dim dt As New DataTable
@@ -57,8 +57,8 @@ Public Class CurrentStayfrm
         Try
             If conn.State = ConnectionState.Closed Then conn.Open()
             Dim sql As String = "SELECT b.booking_id AS 'ID', b.guest_name AS 'Guest Name', r.room_name AS 'Cottage/Room', b.status " &
-                    "FROM bookings b INNER JOIN rooms r ON b.room_id = r.room_id " &
-                    "WHERE b.status = 'Staying' AND b.guest_name LIKE @s"
+                "FROM bookings b INNER JOIN rooms r ON b.room_id = r.room_id " &
+                "WHERE b.status = 'Staying' AND b.guest_name LIKE @s"
             Dim cmd As New MySqlCommand(sql, conn)
             cmd.Parameters.AddWithValue("@s", "%" & TxtSearchCurrent.Text & "%")
 
@@ -133,18 +133,18 @@ Public Class CurrentStayfrm
     End Sub
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
-        ' 1. Reload the latest data from the database
-        LoadCurrentStay()
+        ' 1. Reload the latest data from the database
+        LoadCurrentStay()
 
-        ' 2. Clear the search text box so the full list is shown
-        TxtSearchCurrent.Clear()
+        ' 2. Clear the search text box so the full list is shown
+        TxtSearchCurrent.Clear()
 
-        ' 3. Disable the checkout button until a guest is selected again
-        btnCheckout.Enabled = False
+        ' 3. Disable the checkout button until a guest is selected again
+        btnCheckout.Enabled = False
 
-        ' Optional: Small feedback to show it worked
-        ' MessageBox.Show("List updated successfully.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    End Sub
+        ' Optional: Small feedback to show it worked
+        ' MessageBox.Show("List updated successfully.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to Exit?", "Confirm", MessageBoxButtons.OKCancel)
