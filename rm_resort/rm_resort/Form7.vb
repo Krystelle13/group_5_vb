@@ -10,21 +10,24 @@ Public Class FrmTotalIncome
             ' Siguraduhin na bukas ang koneksyon
             If conn.State = ConnectionState.Closed Then conn.Open()
 
-            ' 1. TOTAL REVENUE (Sum ng pera)
-            ' Gagamit tayo ng LIKE '%Confirmed%' para siguradong mahanap kahit may konting typo sa database
-            LoadStatusCount("SELECT COALESCE(SUM(total_price), 0) AS 'GRAND TOTAL REVENUE' FROM bookings WHERE status LIKE '%Confirmed%'", dgvTotal)
+            ' 1. TOTAL REVENUE (Kahit Pending, Confirmed, o Staying - kasama lahat dito)
+            ' Ito ang query na mag-a-update ng Total Income mo agad pagka-book
+            Dim incomeQuery As String = "SELECT COALESCE(SUM(total_price), 0) AS 'GRAND TOTAL REVENUE' " &
+                                      "FROM bookings " &
+                                      "WHERE status IN ('Pending', 'Confirmed', 'Staying', 'Checked Out')"
+            LoadStatusCount(incomeQuery, dgvTotal)
 
-            ' 2. TOTAL PENDING (Bilang ng naghihintay)
-            LoadStatusCount("SELECT COUNT(*) AS 'TOTAL PENDING' FROM bookings WHERE status LIKE '%Pending%'", dgvPend)
+            ' 2. TOTAL PENDING
+            LoadStatusCount("SELECT COUNT(*) AS 'TOTAL PENDING' FROM bookings WHERE status = 'Pending'", dgvPend)
 
-            ' 3. TOTAL CONFIRMED (Bilang ng mga bayad na)
-            LoadStatusCount("SELECT COUNT(*) AS 'TOTAL CONFIRMED' FROM bookings WHERE status LIKE '%Confirmed%'", dgvconfirm)
+            ' 3. TOTAL CONFIRMED
+            LoadStatusCount("SELECT COUNT(*) AS 'TOTAL CONFIRMED' FROM bookings WHERE status = 'Confirmed'", dgvconfirm)
 
-            ' 4. TOTAL STAYING (Bilang ng mga naka-check in)
-            LoadStatusCount("SELECT COUNT(*) AS 'TOTAL STAYING' FROM bookings WHERE status LIKE '%Staying%'", dgvcurrent)
+            ' 4. TOTAL STAYING
+            LoadStatusCount("SELECT COUNT(*) AS 'TOTAL STAYING' FROM bookings WHERE status = 'Staying'", dgvcurrent)
 
-            ' Pag-apply ng visual styles sa bawat grid
-            StyleGrid(dgvTotal, True)  ' True dahil Currency (₱) ito
+            ' apply fpr visual styles for grid
+            StyleGrid(dgvTotal, True)  ' True = money (₱)
             StyleGrid(dgvPend, False)
             StyleGrid(dgvconfirm, False)
             StyleGrid(dgvcurrent, False)
@@ -45,29 +48,54 @@ Public Class FrmTotalIncome
             adp.Fill(dt)
             dgv.DataSource = dt
         Catch ex As Exception
-            ' Silent error para sa individual grids
+            ' Silent error
         End Try
     End Sub
 
-    ' Helper Function para sa Styling (Para magmukhang Total Boxes)
+    ' =========================================================================
+    ' 🔒 FIXED & NON-EDITABLE STYLING
+    ' =========================================================================
     Private Sub StyleGrid(dgv As DataGridView, isCurrency As Boolean)
         If dgv.Columns.Count > 0 Then
+            ' Cleanup and Protection - Dito sinisigurado na hindi editable
+            dgv.ReadOnly = True ' Hindi pwedeng i-type-an
+            dgv.Enabled = False ' I-disable ang mouse interaction para hindi ma-select
+            dgv.AllowUserToAddRows = False
+            dgv.AllowUserToDeleteRows = False
+            dgv.AllowUserToOrderColumns = False
+            dgv.AllowUserToResizeColumns = False
+            dgv.AllowUserToResizeRows = False
+
+            dgv.ColumnHeadersVisible = False
+            dgv.RowHeadersVisible = False
+            dgv.ScrollBars = ScrollBars.None
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            dgv.BackgroundColor = Color.White
+            dgv.BorderStyle = BorderStyle.None
+
             With dgv.DefaultCellStyle
-                If isCurrency Then .Format = "₱ #,##0.00"
+                ' Formatting: ₱ for Income, N0 for counts
+                If isCurrency Then
+                    .Format = "₱ #,##0.00"
+                Else
+                    .Format = "N0"
+                End If
+
                 .Alignment = DataGridViewContentAlignment.MiddleCenter
-                .Font = New Font("Segoe UI", 16, FontStyle.Bold)
-                .ForeColor = Color.DarkBlue
+                .Font = New Font("Segoe UI", 22, FontStyle.Bold)
+                .ForeColor = Color.FromArgb(0, 51, 102) ' High-contrast Dark Blue
+                .BackColor = Color.White
+
+                ' Selection fix
+                .SelectionBackColor = Color.White
+                .SelectionForeColor = Color.FromArgb(0, 51, 102)
             End With
 
-            ' Linisin ang itsura ng Grid
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            dgv.RowHeadersVisible = False
-            dgv.AllowUserToAddRows = False
-            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.Navy
-            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
-            dgv.EnableHeadersVisualStyles = False
-            dgv.ScrollBars = ScrollBars.None
+            ' I-stretch ang row para sakop ang buong box height
+            dgv.RowTemplate.Height = dgv.Height
+            If dgv.Rows.Count > 0 Then
+                dgv.Rows(0).Height = dgv.Height
+            End If
         End If
     End Sub
 
@@ -81,7 +109,6 @@ Public Class FrmTotalIncome
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
         LoadAllDashboardData()
-        MessageBox.Show("All totals updated!", "Island Aura System", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub btnCurrent_Click(sender As Object, e As EventArgs) Handles btnCurrent.Click
@@ -92,6 +119,12 @@ Public Class FrmTotalIncome
 
     Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
         Dim f1 As New Dashboardfrm
+        f1.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim f1 As New FrmConfirm
         f1.Show()
         Me.Hide()
     End Sub
@@ -109,18 +142,4 @@ Public Class FrmTotalIncome
         Application.Exit()
     End Sub
 
-    ' Iba pang button handlers (I-paste lang ang navigation logic mo dito gaya ng dati)
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim f1 As New FrmConfirm
-        f1.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
-        ' Maintain current form
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPend.CellContentClick
-
-    End Sub
 End Class

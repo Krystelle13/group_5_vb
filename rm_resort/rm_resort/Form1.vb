@@ -5,7 +5,7 @@ Public Class Loginform
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to Exit?", "Confirm", MessageBoxButtons.OKCancel)
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to Cancel?", "Confirm", MessageBoxButtons.OKCancel)
         If result = DialogResult.OK Then
             Application.Exit()
         End If
@@ -31,6 +31,10 @@ Public Class Loginform
         If result = DialogResult.OK Then
             Application.Exit()
         End If
+    End Sub
+
+    Private Sub Loginform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
 

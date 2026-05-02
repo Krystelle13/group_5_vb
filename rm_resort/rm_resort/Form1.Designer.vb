@@ -144,10 +144,10 @@ Partial Class Loginform
         Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(671, 37)
+        Me.Button2.Location = New System.Drawing.Point(665, 37)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(39, 26)
+        Me.Button2.Size = New System.Drawing.Size(45, 30)
         Me.Button2.TabIndex = 26
         Me.Button2.Text = "X"
         Me.Button2.UseVisualStyleBackColor = False
@@ -167,7 +167,7 @@ Partial Class Loginform
         Me.AcceptButton = Me.btnLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(711, 382)
+        Me.ClientSize = New System.Drawing.Size(713, 375)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnLogin)
@@ -182,6 +182,7 @@ Partial Class Loginform
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MinimizeBox = False
         Me.Name = "Loginform"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "LoginForm"

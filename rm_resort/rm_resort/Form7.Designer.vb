@@ -194,9 +194,9 @@ Partial Class FrmTotalIncome
         Me.Panel1.Controls.Add(Me.btnConfirm)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.ForeColor = System.Drawing.Color.Chocolate
-        Me.Panel1.Location = New System.Drawing.Point(-2, -1)
+        Me.Panel1.Location = New System.Drawing.Point(-2, -6)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(195, 451)
+        Me.Panel1.Size = New System.Drawing.Size(195, 470)
         Me.Panel1.TabIndex = 20
         '
         'dgvTotal

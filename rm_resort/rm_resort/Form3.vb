@@ -13,8 +13,9 @@
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to Exit?", "Confirm", MessageBoxButtons.OKCancel)
-        If result = DialogResult.OK Then
-            Application.Exit()
+        If result <> DialogResult.OK Then
+            Return
         End If
+        Application.Exit()
     End Sub
 End Class
