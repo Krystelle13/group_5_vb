@@ -27,7 +27,6 @@ Partial Class FrmTotalIncome
         Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Button2 = New System.Windows.Forms.Button()
@@ -47,12 +46,13 @@ Partial Class FrmTotalIncome
         Me.dgvPend = New System.Windows.Forms.DataGridView()
         Me.dgvconfirm = New System.Windows.Forms.DataGridView()
         Me.dgvcurrent = New System.Windows.Forms.DataGridView()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvTotal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvPend, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvconfirm, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvcurrent, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tmrRefresh
@@ -65,26 +65,16 @@ Partial Class FrmTotalIncome
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(57, 17)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(73, 58)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
         'btnRefresh
         '
         Me.btnRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnRefresh.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRefresh.Location = New System.Drawing.Point(596, 1)
+        Me.btnRefresh.Location = New System.Drawing.Point(1198, -2)
         Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(64, 24)
+        Me.btnRefresh.Size = New System.Drawing.Size(84, 38)
         Me.btnRefresh.TabIndex = 23
-        Me.btnRefresh.Text = "Refresh"
+        Me.btnRefresh.Text = "↻"
         Me.btnRefresh.UseVisualStyleBackColor = False
         '
         'Timer1
@@ -95,10 +85,10 @@ Partial Class FrmTotalIncome
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Button2.Location = New System.Drawing.Point(666, -1)
+        Me.Button2.Location = New System.Drawing.Point(1289, -3)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(45, 26)
+        Me.Button2.Size = New System.Drawing.Size(84, 38)
         Me.Button2.TabIndex = 27
         Me.Button2.Text = "X"
         Me.Button2.UseVisualStyleBackColor = False
@@ -106,10 +96,10 @@ Partial Class FrmTotalIncome
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(240, 107)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 21.75!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Location = New System.Drawing.Point(532, 88)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(151, 28)
+        Me.Label1.Size = New System.Drawing.Size(209, 39)
         Me.Label1.TabIndex = 22
         Me.Label1.Text = "Total Income"
         '
@@ -123,11 +113,12 @@ Partial Class FrmTotalIncome
         Me.btnLogout.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.btnLogout.FlatAppearance.BorderSize = 0
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogout.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.btnLogout.ForeColor = System.Drawing.Color.Snow
-        Me.btnLogout.Location = New System.Drawing.Point(0, 347)
+        Me.btnLogout.Location = New System.Drawing.Point(-8, 599)
         Me.btnLogout.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(200, 52)
+        Me.btnLogout.Size = New System.Drawing.Size(436, 104)
         Me.btnLogout.TabIndex = 11
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.UseVisualStyleBackColor = False
@@ -136,11 +127,12 @@ Partial Class FrmTotalIncome
         '
         Me.btnSettings.FlatAppearance.BorderSize = 0
         Me.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSettings.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.btnSettings.ForeColor = System.Drawing.Color.Orange
-        Me.btnSettings.Location = New System.Drawing.Point(-8, 95)
+        Me.btnSettings.Location = New System.Drawing.Point(-30, 117)
         Me.btnSettings.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSettings.Name = "btnSettings"
-        Me.btnSettings.Size = New System.Drawing.Size(212, 52)
+        Me.btnSettings.Size = New System.Drawing.Size(436, 104)
         Me.btnSettings.TabIndex = 10
         Me.btnSettings.Text = "Dashboard"
         Me.btnSettings.UseVisualStyleBackColor = True
@@ -149,11 +141,12 @@ Partial Class FrmTotalIncome
         '
         Me.btnCurrent.FlatAppearance.BorderSize = 0
         Me.btnCurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCurrent.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.btnCurrent.ForeColor = System.Drawing.Color.Orange
-        Me.btnCurrent.Location = New System.Drawing.Point(-25, 275)
+        Me.btnCurrent.Location = New System.Drawing.Point(-21, 446)
         Me.btnCurrent.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCurrent.Name = "btnCurrent"
-        Me.btnCurrent.Size = New System.Drawing.Size(237, 52)
+        Me.btnCurrent.Size = New System.Drawing.Size(436, 104)
         Me.btnCurrent.TabIndex = 9
         Me.btnCurrent.Text = "Currently Staying"
         Me.btnCurrent.UseVisualStyleBackColor = True
@@ -162,11 +155,12 @@ Partial Class FrmTotalIncome
         '
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.Button1.ForeColor = System.Drawing.Color.Orange
-        Me.Button1.Location = New System.Drawing.Point(-8, 215)
+        Me.Button1.Location = New System.Drawing.Point(-21, 323)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(212, 52)
+        Me.Button1.Size = New System.Drawing.Size(436, 104)
         Me.Button1.TabIndex = 8
         Me.Button1.Text = "Confirmed"
         Me.Button1.UseVisualStyleBackColor = True
@@ -175,11 +169,12 @@ Partial Class FrmTotalIncome
         '
         Me.btnConfirm.FlatAppearance.BorderSize = 0
         Me.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnConfirm.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.btnConfirm.ForeColor = System.Drawing.Color.Orange
-        Me.btnConfirm.Location = New System.Drawing.Point(-8, 155)
+        Me.btnConfirm.Location = New System.Drawing.Point(-30, 220)
         Me.btnConfirm.Margin = New System.Windows.Forms.Padding(4)
         Me.btnConfirm.Name = "btnConfirm"
-        Me.btnConfirm.Size = New System.Drawing.Size(212, 52)
+        Me.btnConfirm.Size = New System.Drawing.Size(436, 104)
         Me.btnConfirm.TabIndex = 6
         Me.btnConfirm.Text = "Pending"
         Me.btnConfirm.UseVisualStyleBackColor = True
@@ -187,16 +182,16 @@ Partial Class FrmTotalIncome
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.PictureBox2)
         Me.Panel1.Controls.Add(Me.btnLogout)
         Me.Panel1.Controls.Add(Me.btnSettings)
         Me.Panel1.Controls.Add(Me.btnCurrent)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.btnConfirm)
-        Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.ForeColor = System.Drawing.Color.Chocolate
         Me.Panel1.Location = New System.Drawing.Point(-2, -6)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(195, 470)
+        Me.Panel1.Size = New System.Drawing.Size(406, 728)
         Me.Panel1.TabIndex = 20
         '
         'dgvTotal
@@ -209,41 +204,41 @@ Partial Class FrmTotalIncome
         Me.dgvTotal.BackgroundColor = System.Drawing.Color.RoyalBlue
         Me.dgvTotal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvTotal.ColumnHeadersVisible = False
-        Me.dgvTotal.Location = New System.Drawing.Point(238, 167)
+        Me.dgvTotal.Location = New System.Drawing.Point(958, 141)
         Me.dgvTotal.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvTotal.Name = "dgvTotal"
         Me.dgvTotal.RowHeadersVisible = False
         Me.dgvTotal.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.dgvTotal.Size = New System.Drawing.Size(161, 41)
+        Me.dgvTotal.Size = New System.Drawing.Size(303, 204)
         Me.dgvTotal.TabIndex = 21
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(481, 107)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei", 21.75!, System.Drawing.FontStyle.Bold)
+        Me.Label2.Location = New System.Drawing.Point(1007, 88)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(160, 28)
+        Me.Label2.Size = New System.Drawing.Size(222, 39)
         Me.Label2.TabIndex = 31
         Me.Label2.Text = "Total Pending"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(240, 277)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei", 21.75!, System.Drawing.FontStyle.Bold)
+        Me.Label3.Location = New System.Drawing.Point(532, 382)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(159, 28)
+        Me.Label3.Size = New System.Drawing.Size(220, 39)
         Me.Label3.TabIndex = 32
         Me.Label3.Text = "Total Confirm"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(466, 282)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft YaHei", 21.75!, System.Drawing.FontStyle.Bold)
+        Me.Label4.Location = New System.Drawing.Point(951, 382)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(184, 22)
+        Me.Label4.Size = New System.Drawing.Size(331, 39)
         Me.Label4.TabIndex = 33
         Me.Label4.Text = "Total Current Staying"
         '
@@ -257,12 +252,12 @@ Partial Class FrmTotalIncome
         Me.dgvPend.BackgroundColor = System.Drawing.Color.RoyalBlue
         Me.dgvPend.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPend.ColumnHeadersVisible = False
-        Me.dgvPend.Location = New System.Drawing.Point(480, 167)
+        Me.dgvPend.Location = New System.Drawing.Point(490, 141)
         Me.dgvPend.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvPend.Name = "dgvPend"
         Me.dgvPend.RowHeadersVisible = False
         Me.dgvPend.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.dgvPend.Size = New System.Drawing.Size(161, 41)
+        Me.dgvPend.Size = New System.Drawing.Size(303, 204)
         Me.dgvPend.TabIndex = 34
         '
         'dgvconfirm
@@ -275,12 +270,12 @@ Partial Class FrmTotalIncome
         Me.dgvconfirm.BackgroundColor = System.Drawing.Color.RoyalBlue
         Me.dgvconfirm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvconfirm.ColumnHeadersVisible = False
-        Me.dgvconfirm.Location = New System.Drawing.Point(238, 336)
+        Me.dgvconfirm.Location = New System.Drawing.Point(490, 440)
         Me.dgvconfirm.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvconfirm.Name = "dgvconfirm"
         Me.dgvconfirm.RowHeadersVisible = False
         Me.dgvconfirm.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.dgvconfirm.Size = New System.Drawing.Size(161, 41)
+        Me.dgvconfirm.Size = New System.Drawing.Size(303, 204)
         Me.dgvconfirm.TabIndex = 35
         '
         'dgvcurrent
@@ -293,19 +288,29 @@ Partial Class FrmTotalIncome
         Me.dgvcurrent.BackgroundColor = System.Drawing.Color.RoyalBlue
         Me.dgvcurrent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvcurrent.ColumnHeadersVisible = False
-        Me.dgvcurrent.Location = New System.Drawing.Point(480, 336)
+        Me.dgvcurrent.Location = New System.Drawing.Point(967, 440)
         Me.dgvcurrent.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvcurrent.Name = "dgvcurrent"
         Me.dgvcurrent.RowHeadersVisible = False
         Me.dgvcurrent.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.dgvcurrent.Size = New System.Drawing.Size(161, 41)
+        Me.dgvcurrent.Size = New System.Drawing.Size(303, 204)
         Me.dgvcurrent.TabIndex = 36
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(97, 3)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(187, 107)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 12
+        Me.PictureBox2.TabStop = False
         '
         'FrmTotalIncome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(711, 452)
+        Me.ClientSize = New System.Drawing.Size(1386, 714)
         Me.ControlBox = False
         Me.Controls.Add(Me.dgvcurrent)
         Me.Controls.Add(Me.dgvconfirm)
@@ -319,16 +324,17 @@ Partial Class FrmTotalIncome
         Me.Controls.Add(Me.dgvTotal)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmTotalIncome"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "DashboardForm"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.dgvTotal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvPend, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvconfirm, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvcurrent, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -336,7 +342,6 @@ Partial Class FrmTotalIncome
     Friend WithEvents tmrRefresh As Timer
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents ColorDialog1 As ColorDialog
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btnRefresh As Button
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Button2 As Button
@@ -356,4 +361,5 @@ Partial Class FrmTotalIncome
     Friend WithEvents dgvPend As DataGridView
     Friend WithEvents dgvconfirm As DataGridView
     Friend WithEvents dgvcurrent As DataGridView
+    Friend WithEvents PictureBox2 As PictureBox
 End Class
