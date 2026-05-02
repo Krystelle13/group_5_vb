@@ -24,8 +24,7 @@ Partial Class Dashboardfrm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Dashboardfrm))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.btnSettings = New System.Windows.Forms.Button()
@@ -72,7 +71,7 @@ Partial Class Dashboardfrm
         Me.btnLogout.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogout.ForeColor = System.Drawing.Color.Snow
         Me.btnLogout.Location = New System.Drawing.Point(4, 564)
-        Me.btnLogout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnLogout.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(402, 107)
         Me.btnLogout.TabIndex = 11
@@ -86,7 +85,7 @@ Partial Class Dashboardfrm
         Me.btnSettings.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSettings.ForeColor = System.Drawing.Color.Orange
         Me.btnSettings.Location = New System.Drawing.Point(-4, 111)
-        Me.btnSettings.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnSettings.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSettings.Name = "btnSettings"
         Me.btnSettings.Size = New System.Drawing.Size(436, 104)
         Me.btnSettings.TabIndex = 10
@@ -100,7 +99,7 @@ Partial Class Dashboardfrm
         Me.btnCurrent.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCurrent.ForeColor = System.Drawing.Color.Orange
         Me.btnCurrent.Location = New System.Drawing.Point(-8, 429)
-        Me.btnCurrent.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnCurrent.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCurrent.Name = "btnCurrent"
         Me.btnCurrent.Size = New System.Drawing.Size(436, 104)
         Me.btnCurrent.TabIndex = 9
@@ -114,7 +113,7 @@ Partial Class Dashboardfrm
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Orange
         Me.Button1.Location = New System.Drawing.Point(-8, 317)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(436, 104)
         Me.Button1.TabIndex = 8
@@ -129,7 +128,7 @@ Partial Class Dashboardfrm
         Me.btnConfirm.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnConfirm.ForeColor = System.Drawing.Color.Orange
         Me.btnConfirm.Location = New System.Drawing.Point(-8, 205)
-        Me.btnConfirm.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnConfirm.Margin = New System.Windows.Forms.Padding(4)
         Me.btnConfirm.Name = "btnConfirm"
         Me.btnConfirm.Size = New System.Drawing.Size(436, 104)
         Me.btnConfirm.TabIndex = 6
@@ -154,25 +153,17 @@ Partial Class Dashboardfrm
         Me.dgvBookings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvBookings.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvBookings.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvBookings.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DeepSkyBlue
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvBookings.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvBookings.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgvBookings.Location = New System.Drawing.Point(433, 173)
-        Me.dgvBookings.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgvBookings.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvBookings.Name = "dgvBookings"
         Me.dgvBookings.ReadOnly = True
         Me.dgvBookings.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
@@ -205,7 +196,7 @@ Partial Class Dashboardfrm
         Me.btnConfirmPaid.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnConfirmPaid.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnConfirmPaid.Location = New System.Drawing.Point(433, 608)
-        Me.btnConfirmPaid.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnConfirmPaid.Margin = New System.Windows.Forms.Padding(4)
         Me.btnConfirmPaid.Name = "btnConfirmPaid"
         Me.btnConfirmPaid.Size = New System.Drawing.Size(396, 89)
         Me.btnConfirmPaid.TabIndex = 12
@@ -216,7 +207,7 @@ Partial Class Dashboardfrm
         '
         Me.TxtSearch.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtSearch.Location = New System.Drawing.Point(543, 108)
-        Me.TxtSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TxtSearch.Margin = New System.Windows.Forms.Padding(4)
         Me.TxtSearch.Multiline = True
         Me.TxtSearch.Name = "TxtSearch"
         Me.TxtSearch.Size = New System.Drawing.Size(678, 57)
@@ -239,7 +230,7 @@ Partial Class Dashboardfrm
         Me.btnCancel.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnCancel.Location = New System.Drawing.Point(939, 608)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(396, 89)
         Me.btnCancel.TabIndex = 15
@@ -253,7 +244,7 @@ Partial Class Dashboardfrm
         Me.btnRefresh.FlatAppearance.BorderSize = 3
         Me.btnRefresh.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRefresh.Location = New System.Drawing.Point(1229, 108)
-        Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(106, 57)
         Me.btnRefresh.TabIndex = 16
@@ -266,7 +257,7 @@ Partial Class Dashboardfrm
         Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.Button2.FlatAppearance.BorderSize = 2
         Me.Button2.Location = New System.Drawing.Point(1286, 0)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(84, 38)
         Me.Button2.TabIndex = 17
