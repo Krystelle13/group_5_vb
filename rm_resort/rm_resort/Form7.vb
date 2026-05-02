@@ -1,20 +1,21 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class FrmTotalIncome
+    ' Connection string
+    Dim conn As New MySqlConnection("server=localhost;user=root;password=;database=db_resort")
 
     ' =========================================================================
     ' 📊 DATA LOADING LOGIC (Revenue & Counts)
     ' =========================================================================
     Public Sub LoadAllDashboardData()
         Try
-            ' Siguraduhin na bukas ang koneksyon
             If conn.State = ConnectionState.Closed Then conn.Open()
 
-            ' 1. TOTAL REVENUE (Kahit Pending, Confirmed, o Staying - kasama lahat dito)
-            ' Ito ang query na mag-a-update ng Total Income mo agad pagka-book
+            ' 1. TOTAL REVENUE (FIXED LOGIC)
+            ' Tinanggal ang 'Pending' sa WHERE clause para ang bayad lang na Confirmed/Staying/Checked Out ang bibilangin.
             Dim incomeQuery As String = "SELECT COALESCE(SUM(total_price), 0) AS 'GRAND TOTAL REVENUE' " &
                                       "FROM bookings " &
-                                      "WHERE status IN ('Pending', 'Confirmed', 'Staying', 'Checked Out')"
+                                      "WHERE status IN ('Confirmed', 'Staying', 'Checked Out')"
             LoadStatusCount(incomeQuery, dgvTotal)
 
             ' 2. TOTAL PENDING
@@ -26,7 +27,7 @@ Public Class FrmTotalIncome
             ' 4. TOTAL STAYING
             LoadStatusCount("SELECT COUNT(*) AS 'TOTAL STAYING' FROM bookings WHERE status = 'Staying'", dgvcurrent)
 
-            ' apply fpr visual styles for grid
+            ' Apply visual styles for grid
             StyleGrid(dgvTotal, True)  ' True = money (₱)
             StyleGrid(dgvPend, False)
             StyleGrid(dgvconfirm, False)
@@ -53,13 +54,13 @@ Public Class FrmTotalIncome
     End Sub
 
     ' =========================================================================
-    ' 🔒 FIXED & NON-EDITABLE STYLING
+    ' 🔒 FIXED STYLING (NO DOTS & NON-EDITABLE)
     ' =========================================================================
     Private Sub StyleGrid(dgv As DataGridView, isCurrency As Boolean)
         If dgv.Columns.Count > 0 Then
-            ' Cleanup and Protection - Dito sinisigurado na hindi editable
-            dgv.ReadOnly = True ' Hindi pwedeng i-type-an
-            dgv.Enabled = False ' I-disable ang mouse interaction para hindi ma-select
+            ' Protection settings
+            dgv.ReadOnly = True
+            dgv.Enabled = False
             dgv.AllowUserToAddRows = False
             dgv.AllowUserToDeleteRows = False
             dgv.AllowUserToOrderColumns = False
@@ -73,28 +74,31 @@ Public Class FrmTotalIncome
             dgv.BackgroundColor = Color.White
             dgv.BorderStyle = BorderStyle.None
 
+            ' Row Height adjustment para sakop ang buong puting box
+            dgv.RowTemplate.Height = dgv.Height
+
             With dgv.DefaultCellStyle
-                ' Formatting: ₱ for Income, N0 for counts
                 If isCurrency Then
                     .Format = "₱ #,##0.00"
+                    ' FIX PARA SA DOTS: Binabaan ang font size para sa income 
+                    ' para magkasya kahit malaki ang amount.
+                    .Font = New Font("Segoe UI", 16, FontStyle.Bold)
                 Else
                     .Format = "N0"
+                    .Font = New Font("Segoe UI", 22, FontStyle.Bold)
                 End If
 
                 .Alignment = DataGridViewContentAlignment.MiddleCenter
-                .Font = New Font("Segoe UI", 22, FontStyle.Bold)
-                .ForeColor = Color.FromArgb(0, 51, 102) ' High-contrast Dark Blue
+                .WrapMode = DataGridViewTriState.False
+                .ForeColor = Color.FromArgb(0, 51, 102)
                 .BackColor = Color.White
-
-                ' Selection fix
                 .SelectionBackColor = Color.White
                 .SelectionForeColor = Color.FromArgb(0, 51, 102)
             End With
 
-            ' I-stretch ang row para sakop ang buong box height
-            dgv.RowTemplate.Height = dgv.Height
+            ' Siguraduhin na ang unang row ay saktong sakto sa height ng DGV
             If dgv.Rows.Count > 0 Then
-                dgv.Rows(0).Height = dgv.Height
+                dgv.Rows(0).Height = dgv.Height - 5
             End If
         End If
     End Sub
@@ -141,5 +145,4 @@ Public Class FrmTotalIncome
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Application.Exit()
     End Sub
-
 End Class

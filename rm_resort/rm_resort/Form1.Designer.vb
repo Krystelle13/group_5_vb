@@ -61,9 +61,9 @@ Partial Class Loginform
         Me.Label3.Font = New System.Drawing.Font("Microsoft Tai Le", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(722, 232)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(174, 37)
+        Me.Label3.Size = New System.Drawing.Size(182, 37)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "USERNAME"
+        Me.Label3.Text = "USERNAME:"
         '
         'Label4
         '
