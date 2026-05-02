@@ -82,7 +82,7 @@ Partial Class FrmConfirm
         Me.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSettings.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.btnSettings.ForeColor = System.Drawing.Color.Orange
-        Me.btnSettings.Location = New System.Drawing.Point(-8, 126)
+        Me.btnSettings.Location = New System.Drawing.Point(-24, 137)
         Me.btnSettings.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSettings.Name = "btnSettings"
         Me.btnSettings.Size = New System.Drawing.Size(436, 104)
@@ -96,7 +96,7 @@ Partial Class FrmConfirm
         Me.btnCurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCurrent.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.btnCurrent.ForeColor = System.Drawing.Color.Orange
-        Me.btnCurrent.Location = New System.Drawing.Point(-8, 462)
+        Me.btnCurrent.Location = New System.Drawing.Point(-9, 473)
         Me.btnCurrent.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCurrent.Name = "btnCurrent"
         Me.btnCurrent.Size = New System.Drawing.Size(436, 104)
@@ -110,7 +110,7 @@ Partial Class FrmConfirm
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.Button1.ForeColor = System.Drawing.Color.Orange
-        Me.Button1.Location = New System.Drawing.Point(-8, 350)
+        Me.Button1.Location = New System.Drawing.Point(-24, 361)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(436, 104)
@@ -124,7 +124,7 @@ Partial Class FrmConfirm
         Me.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnConfirm.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnConfirm.ForeColor = System.Drawing.Color.Orange
-        Me.btnConfirm.Location = New System.Drawing.Point(-8, 238)
+        Me.btnConfirm.Location = New System.Drawing.Point(-24, 249)
         Me.btnConfirm.Margin = New System.Windows.Forms.Padding(4)
         Me.btnConfirm.Name = "btnConfirm"
         Me.btnConfirm.Size = New System.Drawing.Size(436, 104)
@@ -135,7 +135,7 @@ Partial Class FrmConfirm
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(119, 13)
+        Me.PictureBox1.Location = New System.Drawing.Point(118, 13)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(187, 107)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -163,7 +163,7 @@ Partial Class FrmConfirm
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 36.0!, System.Drawing.FontStyle.Bold)
-        Me.Label1.Location = New System.Drawing.Point(732, 27)
+        Me.Label1.Location = New System.Drawing.Point(726, 35)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(321, 64)
         Me.Label1.TabIndex = 15

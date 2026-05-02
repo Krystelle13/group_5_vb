@@ -242,8 +242,4 @@ Public Class Dashboardfrm
     Private Sub btnConfirmPaid_MouseLeave(sender As Object, e As EventArgs) Handles btnConfirmPaid.MouseLeave
         btnConfirmPaid.BackColor = ColorTranslator.FromHtml("#27AE60")
     End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
 End Class
