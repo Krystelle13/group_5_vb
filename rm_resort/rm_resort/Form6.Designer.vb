@@ -151,6 +151,7 @@ Partial Class CurrentStayfrm
         'dgvCurrentStay
         '
         Me.dgvCurrentStay.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab
+        Me.dgvCurrentStay.AllowUserToAddRows = False
         Me.dgvCurrentStay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvCurrentStay.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvCurrentStay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -199,6 +200,7 @@ Partial Class CurrentStayfrm
         'btnCheckout
         '
         Me.btnCheckout.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnCheckout.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCheckout.Location = New System.Drawing.Point(549, 624)
         Me.btnCheckout.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCheckout.Name = "btnCheckout"
@@ -235,7 +237,7 @@ Partial Class CurrentStayfrm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1382, 736)
+        Me.ClientSize = New System.Drawing.Size(1370, 736)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnRefresh)
