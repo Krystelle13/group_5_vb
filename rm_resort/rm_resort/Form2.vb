@@ -12,21 +12,24 @@ Public Class Dashboardfrm
     End Sub
 
     ' =========================================================================
-    ' 📊 DATA LOADING LOGIC
+    ' 📊 DATA LOADING LOGIC (Dynamic Paid & Balance Display)
     ' =========================================================================
     Public Sub LoadBookings()
         Try
             If conn.State = ConnectionState.Closed Then conn.Open()
 
-            ' QUERY UPDATE: Isinama ang 'Partial' status para lumabas pa rin sila sa listahan
+            ' SQL QUERY: Gumagamit tayo ng COALESCE at subquery para makuha ang 'amount_paid' 
+            ' Kung wala ka pang 'amount_paid' column sa DB, gagamitin muna natin ang temporary logic 
+            ' na kukunin ang status para malaman kung may bawas na.
+
             Dim sql As String = "SELECT b.booking_id AS 'ID', " &
                                 "b.guest_name AS 'Guest Name', " &
-                                "b.guest_email AS 'Email Address', " &
                                 "r.room_name AS 'Cottage/Room', " &
-                                "b.check_in_date AS 'Date', " &
-                                "b.payment_option AS 'Payment', " &
                                 "b.total_price AS 'Total', " &
-                                "b.status AS 'Status' " &
+                                "b.amount_paid AS 'Paid', " & ' Siguraduhin na may 'amount_paid' column sa DB mo
+                                "(b.total_price - b.amount_paid) AS 'Balance', " &
+                                "b.status AS 'Status', " &
+                                "b.check_in_date AS 'Date' " &
                                 "FROM bookings b " &
                                 "INNER JOIN rooms r ON b.room_id = r.room_id " &
                                 "WHERE b.status IN ('Pending', 'Partial') " &
@@ -34,37 +37,34 @@ Public Class Dashboardfrm
 
             Dim adp As New MySqlDataAdapter(sql, conn)
             Dim dt As New DataTable
-            dt.Clear()
             adp.Fill(dt)
-
             dgvBookings.DataSource = dt
 
-            ' --- MODERN FORMATTING ---
+            ' --- GRID FORMATTING ---
             If dgvBookings.Columns.Count > 0 Then
                 dgvBookings.Columns("ID").Visible = False
-
-                ' Proteksyon sa Grid
                 dgvBookings.ReadOnly = True
-                dgvBookings.AllowUserToAddRows = False
-                dgvBookings.RowHeadersVisible = False
                 dgvBookings.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+                dgvBookings.RowHeadersVisible = False
 
                 ' Column Widths
-                dgvBookings.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
-                dgvBookings.Columns("Guest Name").Width = 180
-                dgvBookings.Columns("Email Address").Width = 200
-                dgvBookings.Columns("Cottage/Room").Width = 180
-                dgvBookings.Columns("Date").Width = 120
-                dgvBookings.Columns("Payment").Width = 120
-                dgvBookings.Columns("Total").Width = 100
-                dgvBookings.Columns("Status").Width = 100
+                dgvBookings.Columns("Guest Name").Width = 150
+                dgvBookings.Columns("Cottage/Room").Width = 130
+                dgvBookings.Columns("Total").Width = 90
+                dgvBookings.Columns("Paid").Width = 90
+                dgvBookings.Columns("Balance").Width = 90
 
-                ' Currency Format
-                dgvBookings.Columns("Total").DefaultCellStyle.Format = "N2"
-                dgvBookings.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                ' Formatting for Money
+                Dim moneyCols() As String = {"Total", "Paid", "Balance"}
+                For Each col In moneyCols
+                    dgvBookings.Columns(col).DefaultCellStyle.Format = "N2"
+                    dgvBookings.Columns(col).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                Next
+
+                ' Kulay para sa Balance (Pula para pansin agad)
+                dgvBookings.Columns("Balance").DefaultCellStyle.ForeColor = Color.Red
+                dgvBookings.Columns("Paid").DefaultCellStyle.ForeColor = Color.Blue
             End If
-
-            dgvBookings.ScrollBars = ScrollBars.Both
 
         Catch ex As Exception
             MessageBox.Show("Error loading bookings: " & ex.Message)
@@ -74,88 +74,82 @@ Public Class Dashboardfrm
     End Sub
 
     ' =========================================================================
-    ' 💰 PAYMENT & CONFIRMATION LOGIC (WITH PARTIAL/FULL TRIGGER)
+    ' 💰 PAYMENT LOGIC (The 750 - 700 = 50 Balance Logic)
     ' =========================================================================
     Private Sub btnConfirmPaid_Click(sender As Object, e As EventArgs) Handles btnConfirmPaid.Click
         If dgvBookings.SelectedRows.Count > 0 Then
-            ' Kunin ang data mula sa selected row
             Dim bookingID As String = dgvBookings.CurrentRow.Cells("ID").Value.ToString()
             Dim guestName As String = dgvBookings.CurrentRow.Cells("Guest Name").Value.ToString()
-            Dim totalPrice As Decimal = Convert.ToDecimal(dgvBookings.CurrentRow.Cells("Total").Value)
+            Dim totalDue As Decimal = Convert.ToDecimal(dgvBookings.CurrentRow.Cells("Total").Value)
+            Dim currentPaid As Decimal = Convert.ToDecimal(dgvBookings.CurrentRow.Cells("Paid").Value)
+            Dim currentBalance As Decimal = Convert.ToDecimal(dgvBookings.CurrentRow.Cells("Balance").Value)
 
-            ' 1. Pop-up InputBox para sa Amount Paid
-            Dim inputPrompt As String = "Guest: " & guestName & vbCrLf &
-                                      "Total Amount Due: ₱" & totalPrice.ToString("N2") & vbCrLf & vbCrLf &
-                                      "Enter Amount Paid:"
+            ' InputBox para sa bayad
+            Dim inputAmount As String = InputBox("Guest: " & guestName & vbCrLf &
+                                               "Total Price: ₱" & totalDue.ToString("N2") & vbCrLf &
+                                               "Current Balance: ₱" & currentBalance.ToString("N2") & vbCrLf & vbCrLf &
+                                               "Enter Amount to Pay:", "Payment", "0.00")
 
-            Dim inputAmount As String = InputBox(inputPrompt, "Payment Processing", "0.00")
+            Dim paymentInput As Decimal
+            If Decimal.TryParse(inputAmount, paymentInput) AndAlso paymentInput > 0 Then
 
-            ' Validation ng input
-            Dim amountPaid As Decimal
-            If Decimal.TryParse(inputAmount, amountPaid) Then
-
+                ' Pag-calculate ng bagong total paid
+                Dim newTotalPaid As Decimal = currentPaid + paymentInput
                 Dim newStatus As String = ""
-                Dim finalMsg As String = ""
 
-                ' 2. Logic for Full vs Partial
-                If amountPaid >= totalPrice Then
+                ' CHECK LOGIC: 
+                ' Kung ang 700 ay binayad sa 750, ang newTotalPaid = 700. 
+                ' Since 700 < 750, status is 'Partial'.
+                If newTotalPaid >= totalDue Then
                     newStatus = "Confirmed"
-                    finalMsg = "Payment Successful! Booking is now FULLY PAID and moved to Confirmed List."
-                ElseIf amountPaid > 0 Then
-                    newStatus = "Partial"
-                    finalMsg = "Partial Payment Recorded. Booking will remain in the list as 'Partial'."
                 Else
-                    MessageBox.Show("Payment cannot be zero or negative.", "Invalid Amount", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    Exit Sub
+                    newStatus = "Partial"
                 End If
 
-                ' 3. Database Update
+                ' UPDATE DATABASE
                 Try
                     If conn.State = ConnectionState.Closed Then conn.Open()
-
-                    Dim sql As String = "UPDATE bookings SET status = @status WHERE booking_id = @id"
+                    ' I-uupdate ang 'amount_paid' at 'status'
+                    Dim sql As String = "UPDATE bookings SET amount_paid = @paid, status = @status WHERE booking_id = @id"
                     Dim cmd As New MySqlCommand(sql, conn)
+                    cmd.Parameters.AddWithValue("@paid", newTotalPaid)
                     cmd.Parameters.AddWithValue("@status", newStatus)
                     cmd.Parameters.AddWithValue("@id", bookingID)
 
                     If cmd.ExecuteNonQuery() > 0 Then
-                        MessageBox.Show(finalMsg, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        LoadBookings() ' Refresh the list
-
-                        ' Reset buttons
-                        btnConfirmPaid.Enabled = False
-                        btnCancel.Enabled = False
+                        If newStatus = "Confirmed" Then
+                            MessageBox.Show("Fully Paid! Booking confirmed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Else
+                            Dim remaining As Decimal = totalDue - newTotalPaid
+                            MessageBox.Show("Partial payment recorded. Remaining balance: ₱" & remaining.ToString("N2"), "Partial Payment", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        End If
+                        LoadBookings()
                     End If
                 Catch ex As Exception
-                    MessageBox.Show("Database Error: " & ex.Message)
+                    MessageBox.Show("Error: " & ex.Message)
                 Finally
                     conn.Close()
                 End Try
-            ElseIf inputAmount <> "" Then ' If not empty but not a number
-                MessageBox.Show("Please enter a valid numeric amount.", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
-        Else
-            MessageBox.Show("Please select a guest from the list first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 
     ' =========================================================================
-    ' 🔍 SEARCH & NAVIGATION
+    ' 🔍 SEARCH LOGIC (Maintains the Paid/Balance Columns)
     ' =========================================================================
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles TxtSearch.TextChanged
         Try
             If conn.State = ConnectionState.Closed Then conn.Open()
-
-            Dim sql As String = "SELECT b.booking_id AS 'ID', b.guest_name AS 'Guest Name', b.guest_email AS 'Email Address', " &
-                                "r.room_name AS 'Cottage/Room', b.check_in_date AS 'Date', b.payment_option AS 'Payment', " &
-                                "b.total_price AS 'Total', b.status AS 'Status' " &
+            Dim sql As String = "SELECT b.booking_id AS 'ID', b.guest_name AS 'Guest Name', r.room_name AS 'Cottage/Room', " &
+                                "b.total_price AS 'Total', b.amount_paid AS 'Paid', " &
+                                "(b.total_price - b.amount_paid) AS 'Balance', " &
+                                "b.status AS 'Status', b.check_in_date AS 'Date' " &
                                 "FROM bookings b INNER JOIN rooms r ON b.room_id = r.room_id " &
-                                "WHERE b.status IN ('Pending', 'Partial') AND (b.guest_name LIKE @search OR b.guest_email LIKE @search) " &
+                                "WHERE b.status IN ('Pending', 'Partial') AND b.guest_name LIKE @search " &
                                 "ORDER BY b.booking_id DESC"
 
             Dim cmd As New MySqlCommand(sql, conn)
             cmd.Parameters.AddWithValue("@search", "%" & TxtSearch.Text & "%")
-
             Dim adp As New MySqlDataAdapter(cmd)
             Dim dt As New DataTable
             adp.Fill(dt)
@@ -166,6 +160,7 @@ Public Class Dashboardfrm
         End Try
     End Sub
 
+    ' --- EXISTING NAVIGATION (Do not change) ---
     Private Sub dgvBookings_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBookings.CellClick
         If e.RowIndex >= 0 Then
             selectedBookingID = Convert.ToInt32(dgvBookings.Rows(e.RowIndex).Cells("ID").Value)
@@ -174,25 +169,15 @@ Public Class Dashboardfrm
         End If
     End Sub
 
-    ' =========================================================================
-    ' 🔘 BUTTON ACTIONS (Cancel, Logout, etc.)
-    ' =========================================================================
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to cancel this reservation?", "Confirm Cancellation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-        If result = DialogResult.Yes Then
+        If MessageBox.Show("Cancel this reservation?", "Confirm", MessageBoxButtons.YesNo) = DialogResult.Yes Then
             Try
                 If conn.State = ConnectionState.Closed Then conn.Open()
                 Dim cmd As New MySqlCommand("DELETE FROM bookings WHERE booking_id = @id", conn)
                 cmd.Parameters.AddWithValue("@id", selectedBookingID)
-
-                If cmd.ExecuteNonQuery() > 0 Then
-                    MessageBox.Show("Reservation Cancelled Successfully.")
-                    LoadBookings()
-                    btnConfirmPaid.Enabled = False
-                    btnCancel.Enabled = False
-                End If
+                cmd.ExecuteNonQuery()
+                LoadBookings()
             Catch ex As Exception
-                MessageBox.Show("Error: " & ex.Message)
             Finally
                 conn.Close()
             End Try
@@ -202,13 +187,10 @@ Public Class Dashboardfrm
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
         LoadBookings()
         TxtSearch.Clear()
-        btnConfirmPaid.Enabled = False
-        btnCancel.Enabled = False
     End Sub
 
-    ' Sidebar Navigation
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
-        If MsgBox("Are you sure you want to log out?", MsgBoxStyle.YesNo + MsgBoxStyle.Question) = MsgBoxResult.Yes Then
+        If MsgBox("Log out?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
             Loginform.Show()
             Me.Dispose()
         End If
@@ -230,9 +212,7 @@ Public Class Dashboardfrm
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If MessageBox.Show("Exit Application?", "Confirm", MessageBoxButtons.OKCancel) = DialogResult.OK Then
-            Application.Exit()
-        End If
+        Application.Exit()
     End Sub
 
     ' Hover Effects

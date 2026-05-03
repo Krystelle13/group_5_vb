@@ -67,7 +67,7 @@ Partial Class CurrentStayfrm
         Me.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSettings.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.btnSettings.ForeColor = System.Drawing.Color.Orange
-        Me.btnSettings.Location = New System.Drawing.Point(-19, 134)
+        Me.btnSettings.Location = New System.Drawing.Point(-16, 121)
         Me.btnSettings.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSettings.Name = "btnSettings"
         Me.btnSettings.Size = New System.Drawing.Size(436, 104)
@@ -82,7 +82,7 @@ Partial Class CurrentStayfrm
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogout.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.btnLogout.ForeColor = System.Drawing.Color.Snow
-        Me.btnLogout.Location = New System.Drawing.Point(-18, 573)
+        Me.btnLogout.Location = New System.Drawing.Point(-16, 594)
         Me.btnLogout.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(433, 107)
@@ -96,7 +96,7 @@ Partial Class CurrentStayfrm
         Me.btnCurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCurrent.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.btnCurrent.ForeColor = System.Drawing.Color.Orange
-        Me.btnCurrent.Location = New System.Drawing.Point(-9, 430)
+        Me.btnCurrent.Location = New System.Drawing.Point(-16, 447)
         Me.btnCurrent.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCurrent.Name = "btnCurrent"
         Me.btnCurrent.Size = New System.Drawing.Size(436, 104)
@@ -110,7 +110,7 @@ Partial Class CurrentStayfrm
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.Button1.ForeColor = System.Drawing.Color.Orange
-        Me.Button1.Location = New System.Drawing.Point(-9, 318)
+        Me.Button1.Location = New System.Drawing.Point(-19, 331)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(436, 104)
@@ -125,7 +125,7 @@ Partial Class CurrentStayfrm
         Me.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnConfirm.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.btnConfirm.ForeColor = System.Drawing.Color.Orange
-        Me.btnConfirm.Location = New System.Drawing.Point(-9, 223)
+        Me.btnConfirm.Location = New System.Drawing.Point(-19, 229)
         Me.btnConfirm.Margin = New System.Windows.Forms.Padding(0)
         Me.btnConfirm.Name = "btnConfirm"
         Me.btnConfirm.Size = New System.Drawing.Size(436, 104)
@@ -141,7 +141,7 @@ Partial Class CurrentStayfrm
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(121, 20)
+        Me.PictureBox1.Location = New System.Drawing.Point(112, 7)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(187, 107)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -157,7 +157,7 @@ Partial Class CurrentStayfrm
         Me.dgvCurrentStay.Location = New System.Drawing.Point(435, 208)
         Me.dgvCurrentStay.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvCurrentStay.Name = "dgvCurrentStay"
-        Me.dgvCurrentStay.Size = New System.Drawing.Size(923, 399)
+        Me.dgvCurrentStay.Size = New System.Drawing.Size(901, 399)
         Me.dgvCurrentStay.TabIndex = 20
         '
         'Label1
@@ -188,6 +188,7 @@ Partial Class CurrentStayfrm
         '
         'TxtSearchCurrent
         '
+        Me.TxtSearchCurrent.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.TxtSearchCurrent.Location = New System.Drawing.Point(566, 140)
         Me.TxtSearchCurrent.Margin = New System.Windows.Forms.Padding(4)
         Me.TxtSearchCurrent.Multiline = True
@@ -213,7 +214,7 @@ Partial Class CurrentStayfrm
         Me.btnRefresh.Location = New System.Drawing.Point(1252, 140)
         Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(106, 57)
+        Me.btnRefresh.Size = New System.Drawing.Size(84, 57)
         Me.btnRefresh.TabIndex = 17
         Me.btnRefresh.Text = "↻"
         Me.btnRefresh.UseVisualStyleBackColor = False
@@ -234,7 +235,7 @@ Partial Class CurrentStayfrm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1386, 736)
+        Me.ClientSize = New System.Drawing.Size(1382, 736)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnRefresh)

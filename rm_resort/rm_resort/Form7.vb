@@ -11,8 +11,7 @@ Public Class FrmTotalIncome
         Try
             If conn.State = ConnectionState.Closed Then conn.Open()
 
-            ' 1. TOTAL REVENUE (FIXED LOGIC)
-            ' Tinanggal ang 'Pending' sa WHERE clause para ang bayad lang na Confirmed/Staying/Checked Out ang bibilangin.
+            ' 1. TOTAL REVENUE (Confirmed, Staying, Checked Out only)
             Dim incomeQuery As String = "SELECT COALESCE(SUM(total_price), 0) AS 'GRAND TOTAL REVENUE' " &
                                       "FROM bookings " &
                                       "WHERE status IN ('Confirmed', 'Staying', 'Checked Out')"
@@ -48,13 +47,14 @@ Public Class FrmTotalIncome
             dt.Clear()
             adp.Fill(dt)
             dgv.DataSource = dt
+            dgv.ClearSelection()
         Catch ex As Exception
             ' Silent error
         End Try
     End Sub
 
     ' =========================================================================
-    ' 🔒 FIXED STYLING (NO DOTS & NON-EDITABLE)
+    ' 🔒 FIXED STYLING (CENTRALIZED & NON-EDITABLE)
     ' =========================================================================
     Private Sub StyleGrid(dgv As DataGridView, isCurrency As Boolean)
         If dgv.Columns.Count > 0 Then
@@ -74,31 +74,33 @@ Public Class FrmTotalIncome
             dgv.BackgroundColor = Color.White
             dgv.BorderStyle = BorderStyle.None
 
-            ' Row Height adjustment para sakop ang buong puting box
-            dgv.RowTemplate.Height = dgv.Height
+            ' Tinatanggal ang internal border para mas malinis ang alignment
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.None
 
             With dgv.DefaultCellStyle
                 If isCurrency Then
                     .Format = "₱ #,##0.00"
-                    ' FIX PARA SA DOTS: Binabaan ang font size para sa income 
-                    ' para magkasya kahit malaki ang amount.
-                    .Font = New Font("Segoe UI", 16, FontStyle.Bold)
+                    .Font = New Font("Segoe UI", 18, FontStyle.Bold)
                 Else
                     .Format = "N0"
-                    .Font = New Font("Segoe UI", 22, FontStyle.Bold)
+                    .Font = New Font("Segoe UI", 24, FontStyle.Bold)
                 End If
 
+                ' ITO ANG PINAKAMAHALAGA: Centralization
                 .Alignment = DataGridViewContentAlignment.MiddleCenter
+                .Padding = New Padding(0) ' Siguraduhin na walang extra space
+
                 .WrapMode = DataGridViewTriState.False
-                .ForeColor = Color.FromArgb(0, 51, 102)
+                .ForeColor = Color.FromArgb(0, 51, 102) ' Dark Blue
                 .BackColor = Color.White
                 .SelectionBackColor = Color.White
                 .SelectionForeColor = Color.FromArgb(0, 51, 102)
             End With
 
-            ' Siguraduhin na ang unang row ay saktong sakto sa height ng DGV
+            ' Pinupuwersa ang Row Height na maging kasing laki ng DataGridView control
+            ' para ang "MiddleCenter" alignment ay gumana vertical-wise.
             If dgv.Rows.Count > 0 Then
-                dgv.Rows(0).Height = dgv.Height - 5
+                dgv.Rows(0).Height = dgv.Height
             End If
         End If
     End Sub
@@ -144,9 +146,5 @@ Public Class FrmTotalIncome
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Application.Exit()
-    End Sub
-
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs)
-
     End Sub
 End Class

@@ -68,7 +68,7 @@ Partial Class FrmTotalIncome
         'btnRefresh
         '
         Me.btnRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnRefresh.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRefresh.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRefresh.Location = New System.Drawing.Point(1198, -2)
         Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRefresh.Name = "btnRefresh"
@@ -97,7 +97,7 @@ Partial Class FrmTotalIncome
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 21.75!, System.Drawing.FontStyle.Bold)
-        Me.Label1.Location = New System.Drawing.Point(532, 88)
+        Me.Label1.Location = New System.Drawing.Point(532, 111)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(209, 39)
         Me.Label1.TabIndex = 22
@@ -115,7 +115,7 @@ Partial Class FrmTotalIncome
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogout.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.btnLogout.ForeColor = System.Drawing.Color.Snow
-        Me.btnLogout.Location = New System.Drawing.Point(-8, 599)
+        Me.btnLogout.Location = New System.Drawing.Point(-21, 606)
         Me.btnLogout.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(436, 104)
@@ -191,7 +191,7 @@ Partial Class FrmTotalIncome
         Me.Panel1.ForeColor = System.Drawing.Color.Chocolate
         Me.Panel1.Location = New System.Drawing.Point(-2, -6)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(406, 728)
+        Me.Panel1.Size = New System.Drawing.Size(406, 776)
         Me.Panel1.TabIndex = 20
         '
         'dgvTotal
@@ -204,19 +204,19 @@ Partial Class FrmTotalIncome
         Me.dgvTotal.BackgroundColor = System.Drawing.Color.RoyalBlue
         Me.dgvTotal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvTotal.ColumnHeadersVisible = False
-        Me.dgvTotal.Location = New System.Drawing.Point(958, 141)
+        Me.dgvTotal.Location = New System.Drawing.Point(490, 190)
         Me.dgvTotal.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvTotal.Name = "dgvTotal"
         Me.dgvTotal.RowHeadersVisible = False
         Me.dgvTotal.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.dgvTotal.Size = New System.Drawing.Size(303, 204)
+        Me.dgvTotal.Size = New System.Drawing.Size(303, 66)
         Me.dgvTotal.TabIndex = 21
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei", 21.75!, System.Drawing.FontStyle.Bold)
-        Me.Label2.Location = New System.Drawing.Point(1007, 88)
+        Me.Label2.Location = New System.Drawing.Point(1008, 111)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(222, 39)
         Me.Label2.TabIndex = 31
@@ -226,7 +226,7 @@ Partial Class FrmTotalIncome
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei", 21.75!, System.Drawing.FontStyle.Bold)
-        Me.Label3.Location = New System.Drawing.Point(532, 382)
+        Me.Label3.Location = New System.Drawing.Point(532, 413)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(220, 39)
         Me.Label3.TabIndex = 32
@@ -236,7 +236,7 @@ Partial Class FrmTotalIncome
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft YaHei", 21.75!, System.Drawing.FontStyle.Bold)
-        Me.Label4.Location = New System.Drawing.Point(951, 382)
+        Me.Label4.Location = New System.Drawing.Point(951, 413)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(331, 39)
         Me.Label4.TabIndex = 33
@@ -252,12 +252,12 @@ Partial Class FrmTotalIncome
         Me.dgvPend.BackgroundColor = System.Drawing.Color.RoyalBlue
         Me.dgvPend.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPend.ColumnHeadersVisible = False
-        Me.dgvPend.Location = New System.Drawing.Point(490, 141)
+        Me.dgvPend.Location = New System.Drawing.Point(967, 190)
         Me.dgvPend.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvPend.Name = "dgvPend"
         Me.dgvPend.RowHeadersVisible = False
         Me.dgvPend.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.dgvPend.Size = New System.Drawing.Size(303, 204)
+        Me.dgvPend.Size = New System.Drawing.Size(303, 66)
         Me.dgvPend.TabIndex = 34
         '
         'dgvconfirm
@@ -270,12 +270,12 @@ Partial Class FrmTotalIncome
         Me.dgvconfirm.BackgroundColor = System.Drawing.Color.RoyalBlue
         Me.dgvconfirm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvconfirm.ColumnHeadersVisible = False
-        Me.dgvconfirm.Location = New System.Drawing.Point(490, 440)
+        Me.dgvconfirm.Location = New System.Drawing.Point(490, 494)
         Me.dgvconfirm.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvconfirm.Name = "dgvconfirm"
         Me.dgvconfirm.RowHeadersVisible = False
         Me.dgvconfirm.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.dgvconfirm.Size = New System.Drawing.Size(303, 204)
+        Me.dgvconfirm.Size = New System.Drawing.Size(303, 66)
         Me.dgvconfirm.TabIndex = 35
         '
         'dgvcurrent
@@ -288,12 +288,12 @@ Partial Class FrmTotalIncome
         Me.dgvcurrent.BackgroundColor = System.Drawing.Color.RoyalBlue
         Me.dgvcurrent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvcurrent.ColumnHeadersVisible = False
-        Me.dgvcurrent.Location = New System.Drawing.Point(967, 440)
+        Me.dgvcurrent.Location = New System.Drawing.Point(967, 494)
         Me.dgvcurrent.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvcurrent.Name = "dgvcurrent"
         Me.dgvcurrent.RowHeadersVisible = False
         Me.dgvcurrent.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.dgvcurrent.Size = New System.Drawing.Size(303, 204)
+        Me.dgvcurrent.Size = New System.Drawing.Size(303, 66)
         Me.dgvcurrent.TabIndex = 36
         '
         'PictureBox2
@@ -310,7 +310,7 @@ Partial Class FrmTotalIncome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1386, 714)
+        Me.ClientSize = New System.Drawing.Size(1386, 738)
         Me.ControlBox = False
         Me.Controls.Add(Me.dgvcurrent)
         Me.Controls.Add(Me.dgvconfirm)

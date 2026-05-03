@@ -190,6 +190,7 @@ Partial Class FrmConfirm
         'TxtSearch
         '
         Me.TxtSearch.AllowDrop = True
+        Me.TxtSearch.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Bold)
         Me.TxtSearch.Location = New System.Drawing.Point(542, 115)
         Me.TxtSearch.Margin = New System.Windows.Forms.Padding(4)
         Me.TxtSearch.Multiline = True
