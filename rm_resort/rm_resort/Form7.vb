@@ -12,13 +12,16 @@ Public Class FrmTotalIncome
             If conn.State = ConnectionState.Closed Then conn.Open()
 
             ' 1. TOTAL REVENUE (Confirmed, Staying, Checked Out only)
+            ' Hindi kasama ang 'Pending' at 'Partial' dito para hindi mag-zero ang dashboard mo sa revenue
             Dim incomeQuery As String = "SELECT COALESCE(SUM(total_price), 0) AS 'GRAND TOTAL REVENUE' " &
                                       "FROM bookings " &
                                       "WHERE status IN ('Confirmed', 'Staying', 'Checked Out')"
             LoadStatusCount(incomeQuery, dgvTotal)
 
-            ' 2. TOTAL PENDING
-            LoadStatusCount("SELECT COUNT(*) AS 'TOTAL PENDING' FROM bookings WHERE status = 'Pending'", dgvPend)
+            ' 2. TOTAL PENDING (Kasama ang 'Pending' at 'Partial' status)
+            ' Dito natin sinisiguro na kahit 'Partial' na ang status, counted pa rin sya sa Pending List count
+            Dim pendingQuery As String = "SELECT COUNT(*) AS 'TOTAL PENDING' FROM bookings WHERE status IN ('Pending', 'Partial')"
+            LoadStatusCount(pendingQuery, dgvPend)
 
             ' 3. TOTAL CONFIRMED
             LoadStatusCount("SELECT COUNT(*) AS 'TOTAL CONFIRMED' FROM bookings WHERE status = 'Confirmed'", dgvconfirm)

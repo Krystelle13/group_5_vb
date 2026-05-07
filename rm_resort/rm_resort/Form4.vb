@@ -6,9 +6,17 @@ Public Class FrmConfirm
 
     ' 2. Pagka-load ng Form
     Private Sub FrmConfirm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Set selection mode to FullRowSelect so double-clicking anywhere on the row works
-        dgvConfirmed.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvConfirmed.MultiSelect = False
+        ' ENHANCEMENTS: Set properties para hindi ma-edit at maging professional tingnan
+        With dgvConfirmed
+            .ReadOnly = True ' HINDI MA-E-EDIT ANG CELLS
+            .AllowUserToAddRows = False ' HINDI MAKAKAPAG-ADD NG MANUAL ROW
+            .AllowUserToDeleteRows = False ' HINDI MAKAKAPAG-DELETE
+            .AllowUserToOrderColumns = False ' HINDI MA-E-ERASE O MA-MU-MOVE ANG COLUMN ORDER
+            .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            .MultiSelect = False
+            .RowHeadersVisible = False ' Para mas malinis tingnan (optional)
+            .BackgroundColor = Color.White
+        End With
 
         LoadConfirmedBookings()
         btnCheckin.Enabled = False ' Disabled sa simula hangga't walang napipiling guest
@@ -36,8 +44,11 @@ Public Class FrmConfirm
             adp.Fill(dt)
             dgvConfirmed.DataSource = dt
 
+            ' ENHANCEMENTS: Column Formatting
             If dgvConfirmed.Columns.Count > 0 Then
                 dgvConfirmed.Columns("ID").Visible = False
+
+                ' Pinapanatili ang headers at nilalagyan ng fixed width para hindi "ma-erase" sa paningin
                 dgvConfirmed.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
                 dgvConfirmed.Columns("Guest Name").Width = 180
                 dgvConfirmed.Columns("Email Address").Width = 200
@@ -46,6 +57,8 @@ Public Class FrmConfirm
                 dgvConfirmed.Columns("Payment").Width = 120
                 dgvConfirmed.Columns("Total").Width = 100
                 dgvConfirmed.Columns("Status").Width = 100
+
+                ' Format for currency
                 dgvConfirmed.Columns("Total").DefaultCellStyle.Format = "N2"
             End If
             dgvConfirmed.ScrollBars = ScrollBars.Both
@@ -79,21 +92,18 @@ Public Class FrmConfirm
         End Try
     End Sub
 
-    ' SINGLE CLICK: Para i-select muna ang guest at i-enable ang button
+    ' SINGLE CLICK
     Private Sub dgvConfirmed_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvConfirmed.CellClick
         If e.RowIndex >= 0 Then
-            btnCheckin.Enabled = True ' Nagiging enabled lang kapag may napiling guest
+            btnCheckin.Enabled = True
         End If
     End Sub
 
-    ' DOUBLE CLICK: Doon pa lang lalabas ang Check-in logic
+    ' DOUBLE CLICK
     Private Sub dgvConfirmed_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvConfirmed.CellMouseDoubleClick
         If e.RowIndex >= 0 Then
-            ' Siguradong selected ang row
             dgvConfirmed.Rows(e.RowIndex).Selected = True
             btnCheckin.Enabled = True
-
-            ' Tawagin ang Check-in Process
             PerformCheckInAction()
         End If
     End Sub
@@ -105,25 +115,22 @@ Public Class FrmConfirm
 
     ' ACTUAL CHECK-IN LOGIC
     Private Sub PerformCheckInAction()
-        ' Check if there's a selected row
         If dgvConfirmed.SelectedRows.Count > 0 Then
             Dim bookingID As String = dgvConfirmed.CurrentRow.Cells("ID").Value.ToString()
             Dim guestName As String = dgvConfirmed.CurrentRow.Cells("Guest Name").Value.ToString()
 
-            ' THE POP UP MESSAGE
             If MessageBox.Show("Check-in " & guestName & " now?", "Confirm Check-in", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 Try
                     If conn.State = ConnectionState.Closed Then conn.Open()
-                    ' Baguhin ang status mula 'Confirmed' patungong 'Staying'
                     Dim sql As String = "UPDATE bookings SET status = 'Staying' WHERE booking_id = @id"
                     Dim cmd As New MySqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@id", bookingID)
 
                     If cmd.ExecuteNonQuery() > 0 Then
                         MessageBox.Show(guestName & " is now Checked-in!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        LoadConfirmedBookings() ' Refresh ang listahan para mawala na ang pumasok na guest
-                        btnCheckin.Enabled = False ' Disable ulit pagkatapos ng process
-                        dgvConfirmed.ClearSelection() ' Linisin ang selection
+                        LoadConfirmedBookings()
+                        btnCheckin.Enabled = False
+                        dgvConfirmed.ClearSelection()
                     End If
                 Catch ex As Exception
                     MessageBox.Show(ex.Message)
@@ -178,10 +185,8 @@ Public Class FrmConfirm
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
     End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
     End Sub
 End Class

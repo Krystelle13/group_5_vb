@@ -5,41 +5,36 @@ Public Class CurrentStayfrm
     Dim conn As New MySqlConnection("server=localhost;user=root;password=;database=db_resort")
 
     ' =========================================================================
-    ' 🛠️ HELPER PARA SA GRID STYLING (Full Width & No Extra Rows)
+    ' 🛠️ HELPER PARA SA GRID STYLING (Full Width & Protected)
     ' =========================================================================
     Private Sub ApplyGridFormat()
-        ' 1. Tanggalin ang extra empty row sa ibaba at arrow sa gilid
-        dgvCurrentStay.AllowUserToAddRows = False
-        dgvCurrentStay.AllowUserToDeleteRows = False
-        dgvCurrentStay.RowHeadersVisible = False
+        With dgvCurrentStay
+            ' 1. Protection Settings (Hindi na ma-e-edit o mabubura ang data/columns)
+            .ReadOnly = True
+            .AllowUserToAddRows = False
+            .AllowUserToDeleteRows = False
+            .AllowUserToOrderColumns = False
+            .RowHeadersVisible = False
 
-        If dgvCurrentStay.Columns.Count > 0 Then
-            ' 2. Itago ang ID column
-            If dgvCurrentStay.Columns.Contains("ID") Then dgvCurrentStay.Columns("ID").Visible = False
+            If .Columns.Count > 0 Then
+                ' 2. Itago ang ID column
+                If .Columns.Contains("ID") Then .Columns("ID").Visible = False
 
-            ' 3. E-OCCUPY ANG BUONG SPACE (Fill Mode)
-            ' Gagamitin natin ang 'Fill' para mag-stretch ang columns hanggang dulo
-            dgvCurrentStay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+                ' 3. E-OCCUPY ANG BUONG SPACE (Fill Mode)
+                .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
-            ' 4. (Optional) Kung gusto mo ng specific width sa iba pero 'Fill' sa huli:
-            ' dgvCurrentStay.Columns("Guest Name").FillWeight = 150
-            ' dgvCurrentStay.Columns("Email").FillWeight = 150
-            ' dgvCurrentStay.Columns("Cottage/Room").FillWeight = 120
+                ' 4. Format para sa currency at alignment
+                If .Columns.Contains("Total") Then
+                    .Columns("Total").DefaultCellStyle.Format = "N2"
+                    .Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                End If
 
-            ' 5. Format para sa currency at alignment
-            If dgvCurrentStay.Columns.Contains("Total") Then
-                dgvCurrentStay.Columns("Total").DefaultCellStyle.Format = "N2"
-                dgvCurrentStay.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                ' General Styles
+                .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+                .MultiSelect = False
+                .ScrollBars = ScrollBars.Both
             End If
-
-            ' General Styles
-            dgvCurrentStay.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-            dgvCurrentStay.MultiSelect = False
-            dgvCurrentStay.ScrollBars = ScrollBars.Both
-
-            ' TINANGGAL ANG BACKGROUNDCOLOR = WHITE PARA HINDI MAG-WHITE ANG DGV
-            ' dgvCurrentStay.BackgroundColor = Color.White 
-        End If
+        End With
     End Sub
 
     ' Sub para i-load ang data
@@ -98,6 +93,7 @@ Public Class CurrentStayfrm
             adp.Fill(dt)
             dgvCurrentStay.DataSource = dt
 
+            ' Importante: Tawagin ulit ang formatting para hindi bumalik sa default ang columns habang nagse-search
             ApplyGridFormat()
 
         Catch ex As Exception
@@ -112,7 +108,7 @@ Public Class CurrentStayfrm
             Dim bookingID As String = dgvCurrentStay.CurrentRow.Cells("ID").Value.ToString()
             Dim guestName As String = dgvCurrentStay.CurrentRow.Cells("Guest Name").Value.ToString()
 
-            If MessageBox.Show("Are you sure you want to check out " & guestName & "?", "Confirm", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+            If MessageBox.Show("Are you sure you want to check out " & guestName & "?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 Try
                     If conn.State = ConnectionState.Closed Then conn.Open()
                     Dim sql As String = "UPDATE bookings SET status = 'Checked Out' WHERE booking_id = @id"
@@ -120,7 +116,7 @@ Public Class CurrentStayfrm
                     cmd.Parameters.AddWithValue("@id", bookingID)
 
                     If cmd.ExecuteNonQuery() > 0 Then
-                        MessageBox.Show("Checked out successfully.")
+                        MessageBox.Show(guestName & " has checked out successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         LoadCurrentStay()
                         btnCheckout.Enabled = False
                     End If
@@ -143,8 +139,10 @@ Public Class CurrentStayfrm
     End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
-        If MsgBox("Logout?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-            Loginform.Show() : Me.Dispose()
+        If MsgBox("Are you sure you want to logout?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Logout") = MsgBoxResult.Yes Then
+            Dim login As New Loginform()
+            login.Show()
+            Me.Dispose()
         End If
     End Sub
 
@@ -155,10 +153,17 @@ Public Class CurrentStayfrm
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Application.Exit()
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to Exit?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+        If result = DialogResult.OK Then
+            Application.Exit()
+        End If
     End Sub
 
     Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
-        FrmTotalIncome.Show() : Me.Hide()
+        Dim f1 As New FrmTotalIncome
+        f1.Show() : Me.Hide()
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
     End Sub
 End Class
